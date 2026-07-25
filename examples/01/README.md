@@ -174,9 +174,9 @@ you have to re-check.
 
 ---
 
-## The same thing, automated — the First Loop (M1.5)
+## The same thing, automated
 
-**What this is, precisely.** [`scripts/first_loop.py`](../../scripts/first_loop.py) is a
+**What this is, precisely.** [`scripts/compare_readings.py`](../../scripts/compare_readings.py) is a
 minimal demonstration of **one gate**, rebuilt as a standalone program so that anyone can run
 it. It is **not** the chain that produced the numbers in the decision records: that chain runs
 as agent sessions inside Claude Code, and publishing it — the role definitions, the skills,
@@ -187,7 +187,7 @@ checkable without trusting us. The script is the same four steps with the model 
 second reading instead of you.
 
 ```bash
-python3 scripts/first_loop.py \
+python3 scripts/compare_readings.py \
   --pdf paper.pdf --page 2 \
   --target "the first displayed numbered equation, Eq. (1), in section 2.1" \
   --grep 'ðT; εÞ' --context 1

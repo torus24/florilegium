@@ -22,5 +22,10 @@ First public release. The repository publishes the **method**, not yet the engin
 - `examples/01`: a worked example — a formula the text layer silently broke —
   reproducible by hand with `poppler-utils` on an openly licensed paper (CC-BY 4.0). No
   source PDF is committed.
+- `scripts/compare_readings.py` — the smallest runnable demonstration of one
+  gate. It renders the page, reads the text layer, re-transcribes the formula from the
+  image alone and prints the differences between the two readings. It stops at the
+  differences: it issues no verdict. Default backend is a local Claude Code install (no
+  API key); an API backend is available as a declared alternative.
 - `LICENSE` (Apache-2.0), `LICENSES/CC-BY-4.0.txt`, `CITATION.cff`, `ROADMAP` and
   `CONTRIBUTING` (both EN + IT).

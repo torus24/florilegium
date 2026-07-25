@@ -19,19 +19,15 @@ A repository that **explains** the project, without runnable code yet.
 - A few `journal/` entries.
 - **One** worked example in `examples/` with an open-licensed input.
 - `LICENSE`, `ROADMAP.md`, `CONTRIBUTING.md`.
+- **A script that runs the example** — `scripts/compare_readings.py`, the smallest thing that runs: it
+  automates example 01 (render the page as an image, re-transcribe the formula from it,
+  compare the two readings, print the differences). No orchestrator, no gates, no
+  configuration — a demonstration of one gate, not the engine.
 
 **DoD:** a stranger, reading only the README + architecture + one ADR, understands the
 *problem*, the *originality*, and *why this author designed it*. The example is
-reproducible by hand.
-
-## M1.5 — The First Loop  ·  *planned*
-
-The smallest thing that runs: a short script that automates example 01 — render the
-page as an image, re-transcribe the formulas from it, compare the two readings, print
-the differences. No orchestrator, no gates, no configuration.
-
-**DoD:** a user runs the script on example 01 and the loop reproduces, on its own, the
-discrepancies the example documents by hand.
+reproducible by hand, and the script reproduces on its own the discrepancies the
+example documents by hand.
 
 ## M2 — The Engine & the Gates  ·  *planned*
 
@@ -68,7 +64,7 @@ points to the results.
 
 Versions follow [SemVer](https://semver.org). While the engine is not there yet, the
 project stays in **0.x**: each milestone gets its own minor tag — `v0.1.0` for M1,
-`v0.2.0` for M1.5, and so on — and `v1.0.0` arrives with M4, together with the
+`v0.2.0` for M2, and so on — and `v1.0.0` arrives with M4, together with the
 benchmarks. Every tag is a GitHub Release, and [`CHANGELOG.md`](CHANGELOG.md) records
 what changed.
 

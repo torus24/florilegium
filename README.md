@@ -56,14 +56,24 @@ has no way to notice it was handed a corrupted equation in the first place.
 OCR text.**
 
 Reading a page as an image is not new — Nougat, Mathpix, marker and MinerU all do
-it, often very well. **None of them verifies**: each produces a *single* reading, and
-a single reading, however good, has no way to know when it is wrong. Verification is
-not new either — cross-checking between multiple readings, LLM-as-judge,
-self-consistency all exist. What florilegium puts together, and what we have not found
-elsewhere for formulas, is verification that is **adversarial** (a second reading from
-a different channel, whose job is to disagree), **informationally independent** (the
-re-reader is never told the expected answer), and **third-party** (whoever reads is not
-whoever judges). Formulas are precisely where silent errors are most likely and most
+it, often very well. What none of the four produces is **a second, independent reading
+of the formula**: the quality signals they offer are signals **about themselves**
+(Mathpix's per-line confidence, Nougat's detection of its own degeneration), and the
+one second pass that exists — marker's LLM mode — **corrects the output of the first**,
+so it is anchored to it.
+
+Verification by comparison is not new either: having several models read the same image
+and treating disagreement as an error signal is an active line of work
+([Consensus Entropy](https://arxiv.org/abs/2504.11101), 2025), alongside LLM-as-judge
+and self-consistency. florilegium does not multiply readings of the **same** source:
+its readings come from **different channels** — the text layer, the image, and, where
+the source publishes a number, the **internal arithmetic**, which is not a reading at
+all. And it adds two constraints that are not at issue in that work: **informational
+independence** (the re-reader is never told the expected answer — the very constraint
+marker's LLM mode breaks by construction) and **third-party judgement** (whoever reads
+is not whoever judges). It is not a metric: it is a **process doctrine**, with two gate
+levels, declared escalation triggers and an adjudicator who signs. Formulas are
+precisely where silent errors are most likely and most
 costly, and a failure is invisible to any process that only ever holds one reading.
 florilegium closes that blind spot:
 
@@ -211,8 +221,7 @@ We release **in layers**, and each layer is complete in itself:
 
 | Milestone | What it adds | State |
 |---|---|---|
-| **M1 — the Story** | README, architecture, decision records (ADRs), one worked example | **shipped — this repository** |
-| **M1.5 — the First Loop** | A short script that automates example 01 — the first thing that runs | planned |
+| **M1 — the Story** | README, architecture, decision records (ADRs), one worked example, and a short script that automates it | **shipped — this repository** |
 | **M2 — the Engine & the Gates** | The orchestrator, batching and session management + the generalized role prompts and the operational configuration of the gates | planned |
 | **M4 — Benchmarks & v1.0** | Single-prompt vs. chain, OCR-robustness, cost/token, with reproducible data + CI | planned |
 
@@ -255,11 +264,30 @@ settles the question without looking at either reading.
 Those tools solve *extraction*: turning a PDF page — usually via the image — into
 text or LaTeX, and some do it very well. florilegium does not compete on extraction;
 in principle it can sit on top of any of them. What it adds is **adversarial
-verification**: a second, independent reading of the formula from the page image, by
-a role that never saw the first reading and is never told what to expect, followed
-by a cross-check and, on disagreement, an adjudication through a channel neither
-reading used. An extractor hands you one answer; florilegium tells you whether to
-trust it.
+verification**, and the difference lies in what each one calls "verification":
+
+- **Mathpix** returns a confidence score and drops lines below a threshold: that is the
+  model's estimate **of itself**, on a single reading.
+- **Nougat** detects when it degenerates into repetition: it catches catastrophic
+  failure, not the plausible error.
+- **marker**, in LLM mode, runs a second pass that **corrects its own output**: the LLM
+  sees the first reading, so it inherits its errors instead of finding them.
+- **MinerU** uses a second model to verify **text**; formulas are replaced with the
+  output of a specialised model, not verified.
+
+In florilegium the second reading is made by a role that never saw the first and is
+never told what to expect, followed by a cross-check and, on disagreement, an
+adjudication through a channel neither reading used. An extractor hands you one answer;
+florilegium tells you whether to trust it.
+
+**And compared to work that compares multiple readings (Consensus Entropy, LLM-as-judge)?**
+That line of work has several models read the **same image** and uses disagreement as
+an error signal: it is a good detector, and it predates this project. Three things
+differ. Our readings come from **different channels**, not N copies of the same one —
+and the third, the source's internal arithmetic, is not a reading but a sum that has to
+add up. Independence is **enforced**, not hoped for: the re-reader is not handed the
+expected answer. And the outcome is not a score but a **path**: declared escalation, a
+withheld note or quarantine, and a signature that answers for it.
 
 **Why multiple agents instead of one big prompt?**
 Because a single prompt has a single reading of the page. Independent verification

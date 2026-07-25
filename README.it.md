@@ -61,14 +61,23 @@ già corrotta.
 testo OCR.**
 
 Leggere una pagina come immagine non è una novità — Nougat, Mathpix, marker e MinerU
-lo fanno già, spesso molto bene. **Nessuno di loro, però, verifica**: ognuno produce
-una *singola* lettura, e una singola lettura, per quanto buona, non ha modo di sapere
-quando sbaglia. Nemmeno la verifica è una novità in sé — il confronto fra letture
-multiple, il modello-giudice, la self-consistency esistono già. Quello che florilegium
-mette insieme, e che sulle formule non abbiamo trovato altrove, è una verifica **in
-contraddittorio** (una seconda lettura da un canale diverso, il cui compito è
-dissentire), **informativamente indipendente** (a chi rilegge non viene mai detta la
-risposta attesa) e **di terza parte** (chi legge non è chi giudica). Le formule sono
+lo fanno già, spesso molto bene. Nessuno dei quattro, però, produce **una seconda
+lettura indipendente della formula**: i segnali di qualità che offrono sono segnali
+**su se stessi** (la confidenza per riga di Mathpix, il rilevamento della propria
+degenerazione in Nougat), e l'unica seconda passata esistente — la modalità LLM di
+marker — **corregge l'output del primo passaggio**, quindi vi è ancorata.
+
+Nemmeno la verifica per confronto è una novità: far leggere la stessa immagine a più
+modelli e trattare il disaccordo come segnale d'errore è già una linea di ricerca
+attiva ([Consensus Entropy](https://arxiv.org/abs/2504.11101), 2025), accanto al
+modello-giudice e alla self-consistency. florilegium non moltiplica le letture della
+**stessa** sorgente: le fa venire da **canali diversi** — il layer di testo, l'immagine
+e, dove la fonte pubblica un numero, l'**aritmetica interna**, che non è una lettura
+affatto. E aggiunge due vincoli che in quei lavori non sono in questione:
+**indipendenza informativa** (a chi rilegge non viene mai detta la risposta attesa — il
+vincolo che la modalità LLM di marker viola per costruzione) e **terzietà** (chi legge
+non è chi giudica). Non è una metrica: è una **dottrina di processo**, con gate a due
+livelli, innesti di escalation dichiarati e un arbitro che firma. Le formule sono
 proprio il punto in cui gli errori silenziosi sono più probabili e più costosi, e un
 errore è invisibile a qualunque processo che possieda una sola lettura. florilegium
 chiude questo punto cieco:
@@ -222,8 +231,7 @@ Rilasciamo **a livelli**, e ogni livello è completo in sé:
 
 | Milestone | Cosa aggiunge | Stato |
 |---|---|---|
-| **M1 — la Storia** | README, architettura, registri delle decisioni (ADR), un esempio completo | **rilasciata — questo repository** |
-| **M1.5 — il Primo Ciclo** | Uno script breve che automatizza l'esempio 01 — la prima cosa che gira | pianificata |
+| **M1 — la Storia** | README, architettura, registri delle decisioni (ADR), un esempio completo e uno script breve che lo automatizza | **rilasciata — questo repository** |
 | **M2 — il Motore & i Gate** | Orchestratore, batch e session management + i prompt di funzione generalizzati e la configurazione operativa dei gate | pianificata |
 | **M4 — Benchmark & v1.0** | Singolo-prompt vs. catena, robustezza OCR, costo/token, con dati riproducibili + CI | pianificata |
 
@@ -267,12 +275,33 @@ fonte chiude la questione senza guardare nessuna delle due letture.
 Quegli strumenti risolvono l'*estrazione*: trasformare una pagina PDF — di solito
 passando dall'immagine — in testo o LaTeX, e alcuni lo fanno molto bene. florilegium
 non compete sull'estrazione; in linea di principio può appoggiarsi a ciascuno di
-loro. Quello che aggiunge è la **verifica avversariale**: una seconda lettura
-indipendente della formula dall'immagine della pagina, fatta da una funzione che non
-ha mai visto la prima lettura e a cui non viene mai detto cosa aspettarsi, seguita da
-un confronto incrociato e, in caso di disaccordo, dal giudizio di un arbitro
-che dispone di un canale che nessuna delle due letture ha usato. Un estrattore ti consegna una
-risposta; florilegium ti dice se fidarti.
+loro. Quello che aggiunge è la verifica **in contraddittorio**, e la differenza sta in
+che cosa ciascuno chiama «verifica»:
+
+- **Mathpix** restituisce una confidenza e scarta le righe sotto soglia: è la stima che
+  il modello dà **di se stesso**, su una lettura sola.
+- **Nougat** rileva quando degenera nella ripetizione: intercetta il guasto
+  catastrofico, non l'errore plausibile.
+- **marker**, in modalità LLM, fa una seconda passata che **corregge il proprio
+  output**: l'LLM vede la prima lettura, quindi ne eredita gli errori invece di
+  scoprirli.
+- **MinerU** usa un secondo modello per verificare il **testo**; le formule vengono
+  sostituite dall'output di un modello specializzato, non verificate.
+
+In florilegium la seconda lettura è fatta da una funzione che non ha mai visto la prima
+e a cui non viene detto cosa aspettarsi, seguita da un confronto incrociato e, in caso
+di disaccordo, dal giudizio di un arbitro su un canale che nessuna delle due letture ha
+usato. Un estrattore ti consegna una risposta; florilegium ti dice se fidarti.
+
+**E rispetto ai lavori che confrontano più letture (Consensus Entropy, modello-giudice)?**
+Quella linea di ricerca fa leggere la **stessa immagine** a più modelli e usa il
+disaccordo come segnale d'errore: è un buon rilevatore, ed è precedente a questo
+progetto. Le differenze sono tre. Le nostre letture vengono da **canali diversi**, non
+da N copie dello stesso canale — e il terzo, l'aritmetica interna alla fonte, non è una
+lettura ma un conto che deve tornare. L'indipendenza è **imposta**, non sperata: a chi
+rilegge non viene consegnata la risposta attesa. E l'esito non è un punteggio, è un
+**percorso**: escalation dichiarata, nota trattenuta o quarantena, e una firma che
+risponde.
 
 **Perché più agenti invece di un singolo prompt grande?**
 Perché un singolo prompt ha una sola lettura della pagina. La verifica indipendente ha

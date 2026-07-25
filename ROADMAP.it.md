@@ -19,19 +19,14 @@ Un repository che **spiega** il progetto, ancora senza codice eseguibile.
 - Alcune voci di `journal/`.
 - **Un** esempio completo in `examples/` con un input a licenza aperta.
 - `LICENSE`, `ROADMAP.md`, `CONTRIBUTING.md`.
+- **Uno script che esegue l’esempio** — `scripts/compare_readings.py`, la cosa più piccola che gira: automatizza
+  l'esempio 01 (rende la pagina come immagine, ri-trascrive la formula dall'immagine,
+  confronta le due letture, stampa le differenze). Niente orchestratore, niente gate,
+  niente configurazione — è la dimostrazione di **un** gate, non il motore.
 
 **DoD:** un estraneo, leggendo solo README + architettura + un ADR, capisce il *problema*,
 l'*originalità* e *perché questo autore l'ha progettato così*. L'esempio è riproducibile
-a mano.
-
-## M1.5 — il Primo Ciclo  ·  *pianificata*
-
-La cosa più piccola che gira: uno script breve che automatizza l'esempio 01 — rende la
-pagina come immagine, ri-trascrive le formule dall'immagine, confronta le due letture,
-stampa le differenze. Niente orchestratore, niente gate, niente configurazione.
-
-**DoD:** un utente esegue lo script sull'esempio 01 e il ciclo riproduce, da solo, le
-discrepanze che l'esempio documenta a mano.
+a mano, e lo script riproduce da solo le discrepanze che l’esempio documenta a mano.
 
 ## M2 — il Motore & i Gate  ·  *pianificata*
 
@@ -68,7 +63,7 @@ risultati.
 
 Le versioni seguono [SemVer](https://semver.org). Finché il motore non c'è, il progetto
 resta in **0.x**: ogni milestone ha il suo tag minore — `v0.1.0` per M1, `v0.2.0` per
-M1.5, e così via — e la `v1.0.0` arriva con M4, insieme ai benchmark. Ogni tag è una
+M2, e così via — e la `v1.0.0` arriva con M4, insieme ai benchmark. Ogni tag è una
 Release su GitHub, e [`CHANGELOG.md`](CHANGELOG.md) registra che cosa è cambiato.
 
 ---

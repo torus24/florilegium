@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""florilegium — the First Loop (M1.5).
+"""florilegium — two readings of the same formula, compared.
 
 A minimal demonstration of ONE gate, rebuilt so that anyone can run it.
 
@@ -135,7 +135,7 @@ def transcribe_api(png: str, prompt: str, model: str) -> str:
     return "".join(b.text for b in response.content if b.type == "text")
 
 
-def transcribe_cli(png: str, prompt: str) -> str:
+def transcribe_cli(png: str, prompt: str, model: str) -> str:
     """Default backend: a local Claude Code install.
 
     This is the reference implementation the README names, and it is how the
@@ -148,7 +148,7 @@ def transcribe_cli(png: str, prompt: str) -> str:
     # Claude Code will not read a file outside its working directory, so the
     # render has to live under it — see the default for --out.
     full = f"Read the image at {os.path.abspath(png)} and do the following.\n\n{prompt}"
-    return run(["claude", "-p", full]).stdout
+    return run(["claude", "--model", model, "-p", full]).stdout
 
 
 def parse_reading(reply: str) -> str:
@@ -190,7 +190,7 @@ def compare(text_layer: str, image_reading: str) -> list[str]:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description="florilegium — the First Loop")
+    p = argparse.ArgumentParser(description="florilegium — two readings of the same formula, compared")
     p.add_argument("--pdf", required=True, help="path to the PDF (never committed to this repo)")
     p.add_argument("--page", type=int, required=True, help="PDF page number (not the printed one)")
     p.add_argument("--target", required=True, help='what to transcribe, by position — e.g. "Eq. (1) in section 2.1"')
@@ -202,7 +202,10 @@ def main() -> None:
     p.add_argument("--backend", choices=["cli", "api"], default="cli",
                    help="cli: a local Claude Code install, no API key (default, and the "
                         "reference implementation). api: one direct API call — needs a paid key")
-    p.add_argument("--model", default="claude-opus-5", help="api backend only (default: claude-opus-5)")
+    p.add_argument("--model", default="claude-sonnet-5",
+                   help="the model that re-reads the image, on either backend. The default follows "
+                        "ADR-0003, which assigns base-level re-transcription to Sonnet: this step "
+                        "transcribes, it does not judge (default: claude-sonnet-5)")
     p.add_argument("--out", help="where to keep the render (default: a scratch directory under the "
                                  "current one — the cli backend cannot read outside it)")
     args = p.parse_args()
@@ -226,9 +229,9 @@ def main() -> None:
     if not args.grep:
         print("      warning: no --grep, so the whole page is compared against a single target."
               "\n      The differences below will be noise. Narrow it.")
-    print(f"[3/4] re-reading the image ({args.backend} backend)...", flush=True)
+    print(f"[3/4] re-reading the image ({args.backend} backend, {args.model})...", flush=True)
     reply = (transcribe_api(png, prompt, args.model) if args.backend == "api"
-             else transcribe_cli(png, prompt))
+             else transcribe_cli(png, prompt, args.model))
     image_reading = parse_reading(reply)
 
     print("\n--- reading 1: the PDF text layer -------------------------------")

@@ -178,9 +178,9 @@ che puoi usare e una nota che devi ricontrollare.
 
 ---
 
-## La stessa cosa, automatizzata — il Primo Ciclo (M1.5)
+## La stessa cosa, automatizzata
 
-**Cos'è, esattamente.** [`scripts/first_loop.py`](../../scripts/first_loop.py) è una
+**Cos'è, esattamente.** [`scripts/compare_readings.py`](../../scripts/compare_readings.py) è una
 dimostrazione minima di **un solo gate**, ricostruita come programma a sé perché chiunque
 possa eseguirla. **Non** è la catena che ha prodotto i numeri dei registri delle decisioni:
 quella gira come sessioni di agenti dentro Claude Code, e pubblicarla — le schede delle
@@ -192,7 +192,7 @@ l'affermazione verificabile senza doversi fidare di noi. Lo script sono gli stes
 passi, con la seconda lettura fatta dal modello invece che da te.
 
 ```bash
-python3 scripts/first_loop.py \
+python3 scripts/compare_readings.py \
   --pdf paper.pdf --page 2 \
   --target "the first displayed numbered equation, Eq. (1), in section 2.1" \
   --grep 'ðT; εÞ' --context 1
