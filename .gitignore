@@ -12,9 +12,11 @@ HANDOFF.md
 MAPPATURA_NOMI_PRIVATA.md
 
 # --- Private working material: NEVER publishable ---
-#     _release-review/ holds the pre-release review reports, which quote it.
-#     Both are ignored so that no `git add -A` can ever sweep them into a public repo.
-_release-review/
+#     Convention: any top-level directory whose name starts with an underscore holds
+#     private working material — working copies of the source chain, pre-release review
+#     reports, drafts. Ignored wholesale so that no `git add -A` can ever sweep them
+#     into the public repository. Nothing published here depends on them.
+_*/
 
 # --- OS / editor junk ---
 .DS_Store
