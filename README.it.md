@@ -235,6 +235,12 @@ completo in [ROADMAP.it.md](ROADMAP.it.md).
 Perché il codice viene *dopo* la storia: qui il valore è il **metodo e le decisioni**,
 non una cartella di script. Pubblicare prima il ragionamento è una scelta deliberata.
 
+**E il metodo si adotta a pezzi, già oggi, senza nessun motore.** Due di queste regole non
+costano nulla da applicare a mano e valgono già da sole: rendere la pagina a **≥400 dpi e
+rileggere la formula dall'immagine prima di accusare la fonte di un refuso**, e **non dire
+mai a chi rilegge la fonte quale risposta ci si aspetta**. Non è un sostituto di M2 — è la
+parte di florilegium che non ha bisogno di codice.
+
 ---
 
 ## Installazione & esempio

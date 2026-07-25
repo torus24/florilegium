@@ -223,6 +223,12 @@ the decision records that cite it stay valid. Full detail in [ROADMAP.md](ROADMA
 Why the code comes *after* the story: the value here is the **method and the
 decisions**, not a folder of scripts. Publishing the reasoning first is deliberate.
 
+**And the method can be adopted in pieces, today, with no engine at all.** Two of these
+rules cost nothing to apply by hand and are worth having on their own: render the page at
+**≥400 dpi and re-read the formula from the image before accusing the source of a typo**,
+and **never tell whoever re-reads the source what answer is expected**. That is not a
+substitute for M2 — it is the part of florilegium that does not need code.
+
 ---
 
 ## Installation & example

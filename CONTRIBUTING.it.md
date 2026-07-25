@@ -33,6 +33,12 @@ benchmark arrivano nelle milestone successive.
 - **Le affermazioni devono essere oneste.** I numeri sono etichettati come evidenza
   direzionale oppure come benchmark; le due cose non coincidono. I benchmark controllati
   arrivano con M4.
+- **Il diagramma della pipeline vive in quattro file.** Lo stesso flowchart Mermaid è
+  duplicato in `README.md`, `README.it.md`, `architecture/overview.md` e
+  `architecture/overview.it.md` — GitHub non ha un meccanismo di include, quindi la
+  duplicazione è obbligata. **Si toccano tutti e quattro, o nessuno.** Un diagramma che dice
+  una cosa diversa dagli altri tre è esattamente la divergenza silenziosa che questo
+  progetto esiste per intercettare.
 
 ## Due regole ferree
 

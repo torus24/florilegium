@@ -14,7 +14,7 @@ verified_by:
   - channel: text-layer
     outcome: discrepant
   - channel: image-400dpi
-    outcome: authoritative
+    outcome: prevailing
   - channel: source-internal-arithmetic
     outcome: confirming
 tags: [dfos, brillouin, fiber-optic, strain, temperature]
@@ -52,8 +52,10 @@ $$\nu(T, \varepsilon) = C_\varepsilon (\varepsilon - \varepsilon_0) + C_T (T - T
   `nðT; εÞ ¼ Cε ðε  ε0 Þ þ CT ðT  T0 Þ þ n0 ðT0 ; ε0 Þ`. Beyond the obvious font-encoding
   noise (`ð` `Þ` `¼` `þ`), **both subtraction operators were absent** and `ν` was rendered as
   a Latin `n`.
-- **Image at 400 dpi** — *authoritative.* Both minus signs and the Greek `ν` are unambiguous
-  in the print.
+- **Image at 400 dpi** — *prevailing.* Both minus signs and the Greek `ν` are unambiguous
+  in the print. *Prevailing* means the reading that wins **on this line**, not an absolute
+  truth: no channel closes a case on its own — see
+  [journal/03](../../../journal/03-the-third-channel.md).
 - **Source-internal arithmetic** — *confirming, independently.* The article defines `ν₀` as
   the baseline at `(T₀, ε₀)`. Setting `T = T₀` and `ε = ε₀` must therefore yield `ν = ν₀`,
   which requires the first two terms to vanish at the reference point — possible only if they
