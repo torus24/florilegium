@@ -121,6 +121,20 @@ anello solo, non ha spostato nulla: ha prodotto la convinzione di essere protett
   istruire a diffidare dell'informazione: è non fornirla.** Questa è la ragione per cui la
   decisione è scritta come vincolo sul **testo del prompt** e non come raccomandazione di
   condotta.
+- **Esposizione residua, proprio dove il metodo è più forte.** Al livello pieno chi legge è
+  anche chi giudica, e la nota contesa gli viene di norma fornita per il confronto: è
+  esattamente la configurazione che questa decisione dichiara insufficiente in linea di
+  principio. I contrappesi non stanno dentro il gate, stanno attorno — la terza lettura dal
+  layer di testo che l'arbitro esegue comunque su ogni nota-formula, anche quando il gate
+  non ha trovato nulla; la resa ad alta risoluzione che l'arbitro fa di persona prima di
+  ogni firma che accusa la fonte; le condizioni formali di validità del verdetto, senza le
+  quali il gate si considera non avvenuto e si rifà; e la regola per cui nessun verdetto è
+  fonte di verità, in nessuna delle due direzioni. Nella catena d'origine il livello pieno
+  ha, in una stessa corsa, confermato un errore reale e smentito a torto una nota giusta: a
+  reggere furono la ri-trascrizione di base e la terza lettura. La separazione strutturale
+  fra chi legge e chi giudica, a questo livello, resta un **obiettivo di M2** — due chiamate
+  isolate, trascrizione senza la nota e giudizio sulle due trascrizioni — non un risultato
+  già acquisito.
 - **Rischio residuo da sorvegliare:** la regola è facile da violare **in buona fede**,
   perché nasce dal desiderio legittimo di essere precisi e di non far perdere tempo. Va
   verificata sui **prompt**, non sulle intenzioni: il contesto che si dà a chi verifica è

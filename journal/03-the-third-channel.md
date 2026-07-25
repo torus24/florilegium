@@ -3,6 +3,12 @@
 *Journal entry. The data comes from prior use of the pipeline that preceded this project,
 reported in generic form.*
 
+*A note on wording: in this entry “third channel” means the **third route of verification**
+beyond the two original readings — normally the re-reading of the text layer, with the
+source's own arithmetic preferred wherever it exists. In the architecture the channels are
+instead enumerated by **source** (layer, image, arithmetic):
+[quality-gates §3](../architecture/quality-gates.md).*
+
 ---
 
 ## Two readings are not enough

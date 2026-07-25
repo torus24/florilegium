@@ -90,4 +90,6 @@ nobody will ever reopen.
 
 ---
 
-**Related decision:** [ADR-0005 — The token cost is largely intrinsic to quality](../architecture/decisions/0005-cost-is-intrinsic-to-quality.md)
+**Related decision:** [ADR-0007 — Run limits are shutdowns, not quotas](../architecture/decisions/0007-run-limits-are-shutdowns.md) — the rules told here, written as a decision.
+
+**See also:** [ADR-0005 — The token cost is largely intrinsic to quality](../architecture/decisions/0005-cost-is-intrinsic-to-quality.md)

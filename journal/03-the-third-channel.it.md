@@ -3,6 +3,12 @@
 *Voce di diario. I dati vengono da un uso della pipeline precedente a questo progetto,
 riportati in forma generica.*
 
+*Nota di lessico: in questa voce «terzo canale» indica la **terza via di verifica** oltre le
+due letture originali — di norma la rilettura del layer di testo, con l'aritmetica della
+fonte preferita dove esiste. Nell'architettura i canali sono invece enumerati per
+**sorgente** (layer, immagine, aritmetica):
+[quality-gates §3](../architecture/quality-gates.it.md).*
+
 ---
 
 ## Due letture non bastano

@@ -17,7 +17,7 @@ Ogni funzione è descritta con lo stesso schema: **Missione · Input · Output �
 
 ## Direttore (orchestratore e arbitro)
 
-- **Missione:** **orchestra e firma, non produce.** Dà il ritmo alla pipeline — sceglie cosa
+- **Missione:** **orchestra e firma, non produce note.** Dà il ritmo alla pipeline — sceglie cosa
   lavorare, in che ordine, e manda ogni nota attraverso le fasi. Ma è anche il **terzo
   attore che decide**: rifà i conti degli altri, esegue la **terza lettura dal layer di
   testo**, scioglie le divergenze fra estrazione e gate, esegue le rese ad alta risoluzione
@@ -36,7 +36,14 @@ Ogni funzione è descritta con lo stesso schema: **Missione · Input · Output �
 - **Perché esiste:** perché **l'ultima firma sbaglia come tutte le altre funzioni — solo
   che nessuno la controlla.** Le fasi precedenti si controllano a vicenda; chi firma no. Il
   contrappeso non può che essere una procedura scritta che quella funzione deve eseguire su
-  sé stessa, prima di ogni certificazione.
+  sé stessa, prima di ogni certificazione. E va detto per intero: **il canale 3 è
+  auto-prodotto** — lo esegue lo stesso ruolo che poi giudica e firma. Dove la fonte
+  pubblica un numero che la formula deve riprodurre, l'aritmetica interna riduce il margine
+  di giudizio: o il conto chiude o non chiude. Dove quel numero non c'è, il canale 3 è una
+  **lettura**, e come tutte le letture può sbagliare. Per questo la procedura scritta non è
+  una formalità: lascia una **traccia scritta** di ciò che è stato ricontrollato prima di
+  ogni firma, e viene con la regola per cui un errore del direttore stesso si dichiara e
+  riapre la nota — mai una sanatoria silenziosa.
 
 ## Bibliotecario (estrazione)
 

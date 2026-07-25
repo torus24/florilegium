@@ -105,7 +105,7 @@ Two more principles complete it, documented in the architecture records
 
 - **Two gate levels, plus an adjudicator.** The base gate runs on the notes that carry
   formulas or values; the full, expensive gate fires only when a verdict **accuses the
-  source**. Discrepancies do not escalate to the expensive gate: they are settled by the
+  source** — or the note is a **benchmark anchor**. Discrepancies do not escalate to the expensive gate: they are settled by the
   **adjudicator**, the only one who signs. Quality where it matters, cost where it
   doesn’t.
 - **The mandatory verdict is itself a source of error.** Forcing a role to emit a
@@ -291,7 +291,11 @@ Stated up front, because honesty about limits is part of the method:
   choice, not a defect.
 - **“Provider-agnostic” is a design commitment, not yet a finished adapter.** The
   method is described to be portable across models; today it runs on Claude Code.
-  Wiring in another provider still takes work.
+  Wiring in another provider still takes work. Two constraints are implicit and worth
+  stating: the roles that read from the image require **multimodal** models — the method is
+  not portable to a text-only provider; and the reference orchestration assumes **sessions
+  with a limited context**, since the stopping rules are written as a percentage of context
+  occupied.
 - **The public benchmarks arrive with M4.** Until then this README describes a
   **method** and deliberately avoids quoting numbers that cannot yet be reproduced from
   this repository. That is honesty, not weakness.

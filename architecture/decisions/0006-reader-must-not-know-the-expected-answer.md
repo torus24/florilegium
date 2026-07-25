@@ -124,6 +124,20 @@ it produced the belief that we were protected.
   use it is asking not to have read it. **The remedy is not to instruct distrust of the
   information: it is not to supply it.** This is why the decision is written as a constraint
   on the **text of the prompt** and not as a recommendation about conduct.
+- **Residual exposure, exactly where the method is strongest.** At the full level whoever
+  reads is also whoever judges, and the contested note is normally handed over for the
+  comparison: it is the very configuration this decision declares insufficient in
+  principle. The counterweights are not inside the gate, they are around it — the third
+  reading from the text layer that the adjudicator performs on every formula note anyway,
+  even when the gate found nothing; the high-resolution rendering the adjudicator performs
+  in person before any signature that accuses the source; the formal validity conditions of
+  the verdict, without which the gate counts as not having happened and is run again; and
+  the rule that no verdict is ground truth, in either direction. In the originating chain
+  the full level once confirmed a real error and, on the same run, wrongly rejected a note
+  that was right: what held were the base re-transcription and the third reading. The
+  structural separation between whoever reads and whoever judges, at this level, remains an
+  **M2 objective** — two isolated calls, transcription without the note and judgement on the
+  two transcriptions — not an achieved result.
 - **Residual risk to watch:** the rule is easy to break **in good faith**, because it is born
   of the legitimate desire to be precise and not to waste anyone's time. It must be verified
   on the **prompts**, not on intentions: the context you give to whoever verifies is exactly

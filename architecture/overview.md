@@ -91,4 +91,6 @@ efficiency*.
   quality (a rejected optimization).
 - [ADR-0006](decisions/0006-reader-must-not-know-the-expected-answer.md) — whoever
   re-reads the source must not know the expected answer.
+- [ADR-0007](decisions/0007-run-limits-are-shutdowns.md) — run limits are shutdowns, not
+  quotas.
 - [journal](../journal/README.md) — the episodes behind these decisions.

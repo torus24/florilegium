@@ -19,6 +19,22 @@ essi, **un arbitro** che è l'unico a firmare:
 Il gate base non gira «su ogni nota»: gira sulle **note da gate**. Le altre sono **escluse
 una per una, con la motivazione a verbale** — mai un'esclusione in blocco.
 
+Classificare una nota — se da gate o no, se al livello base o al pieno — è dell'**arbitro**:
+non di chi estrae e non di chi controlla. La regola è *in dubbio, al livello più alto*. Le
+esclusioni si registrano nel **rapporto della corsa**, una per una, ciascuna con la propria
+motivazione, e mai come conteggio aggregato: la regola è nata dopo che due note erano state
+escluse in blocco e recuperate solo dalla rilettura integrale del documento.
+
+**Le note che non sono da gate.** Una nota che non porta né formule né valori a punto d'uso
+non attraversa né il pre-gate meccanico — che gira sulle note-formula — né il gate a
+immagine: la sua esclusione si dichiara una per una con la motivazione, e il campo di
+verifica dell'immagine **resta vuoto**. La garanzia che riceve è di natura diversa, e va
+detto: granularità fissa in estrazione, controllo di **coerenza trasversale fra note** prima
+delle firme (una nota non può affermare come certo ciò che un'altra dichiara inferenza),
+audit strutturale del corpus, firma dell'arbitro. La verifica multi-canale è riservata a ciò
+che alimenta un calcolo. Su un corpus tecnico queste note sono la maggior parte del volume:
+dire che ricevono una garanzia **più debole** è parte del metodo, non una sua eccezione.
+
 **Un anchor di benchmark** è una nota designata in anticipo come **riferimento fisso** dei
 benchmark di M4: il suo contenuto deve restare verificato alla lettera, perché le misure
 successive si confrontano con quello. La designazione viene da fuori del gate — è un atto
@@ -115,6 +131,18 @@ Ne discendono tre regole, e sono regole, non consigli:
   guardarli più da vicino non aiuta: bisogna guardarli **da un'altra parte**.
 - **Il layer di testo non basta mai, da solo, a un verdetto.** È un canale, non una prova:
   qualunque conclusione che poggi solo su di lui resta aperta.
+
+**Il triage aggiunge un canale, non ne toglie uno.** Le pagine il cui layer di testo è vuoto
+o corrotto vengono lette **anche** come immagine, ai fini dell'estrazione: è una decisione di
+pagina, ed è l'unica. Non dichiara morto il layer di testo, che resta dovuto **riga per
+riga** in verifica: il terzo canale si tenta sul rigo conteso anche su una pagina dichiarata
+corrotta, perché il testo in chiaro, i numeri di equazione e l'aritmetica della fonte
+**sopravvivono** alla corruzione dei simboli. Nella catena d'origine una pagina dichiarata
+indisponibile in blocco è poi risultata dirimente su tre righi contesi su tre. Va detto con
+la stessa chiarezza che su quelle pagine l'estrazione e il gate di base leggono **la stessa
+immagine**: lì i primi due canali possono guastarsi allo stesso modo, e ciò che resta
+indipendente è il terzo. Come restituire indipendenza ai primi due su quelle pagine — rese
+diverse, ruoli diversi, o un'inversione dei canali — è un **debito dichiarato di M2**.
 
 → gli episodi da cui nasce: [journal/03](../journal/03-the-third-channel.it.md).
 

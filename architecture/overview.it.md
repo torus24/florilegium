@@ -92,4 +92,6 @@ token, più passaggi — è il compromesso dichiarato del progetto:
   alla qualità (ottimizzazione respinta).
 - [ADR-0006](decisions/0006-reader-must-not-know-the-expected-answer.it.md) — chi
   rilegge la fonte non deve conoscere la risposta attesa.
+- [ADR-0007](decisions/0007-run-limits-are-shutdowns.it.md) — i limiti di corsa sono
+  arresti, non quote.
 - [journal](../journal/README.it.md) — gli episodi da cui nascono queste decisioni.

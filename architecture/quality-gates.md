@@ -19,6 +19,23 @@ adjudicator** who is the only one that signs:
 The base gate does not run “on every note”: it runs on **gate notes**. The others are
 **excluded one by one, with the reason on record** — never a wholesale exclusion.
 
+Classifying a note — gate note or not, base level or full — belongs to the **adjudicator**:
+not to whoever extracts, and not to whoever checks. The rule is *when in doubt, the higher
+level*. The exclusions are recorded in the **run report**, one by one, each with its own
+reason, and never as an aggregate count: the rule was written after two notes were excluded
+wholesale and recovered only by re-reading the document in full.
+
+**Notes that are not gate notes.** A note carrying neither formulas nor values at point of
+use goes through neither the mechanical pre-gate — which runs on formula notes — nor the
+image gate: its exclusion is declared one by one with its reason, and the image
+verification field **stays empty**. The guarantee it receives is of a different kind, and
+that has to be said: fixed granularity in extraction, a **cross-note coherence** check
+before the signatures (one note cannot assert as certain what another declares an
+inference), a structural audit of the corpus, and the adjudicator's signature. Multi-channel
+verification is reserved for what feeds a computation. On a technical corpus these notes are
+the bulk of the volume: saying that they receive a **weaker** guarantee is part of the
+method, not an exception to it.
+
 **A benchmark anchor** is a note designated in advance as a **fixed reference** for the M4
 benchmarks: its content has to stay verified to the letter, because later measurements are
 compared against it. The designation comes from outside the gate — it is a deliberate act,
@@ -116,6 +133,19 @@ Three rules follow, and they are rules, not advice:
   other, looking closer does not help: you have to look **from somewhere else**.
 - **The text layer is never enough, on its own, for a verdict.** It is a channel, not a
   proof: any conclusion resting on it alone stays open.
+
+**Triage adds a channel, it does not remove one.** Pages whose text layer is empty or
+corrupted are read **as images too**, for extraction: that is a page-level decision, and it
+is the only one. It does not declare the text layer dead — the layer stays due **line by
+line** for verification: the third channel is attempted on the contested line even on a page
+declared corrupted, because the plain text, the equation numbers and the source's own
+arithmetic **survive** the corruption of the symbols. In the originating chain a page
+declared unavailable wholesale later turned out to be decisive on three contested lines out
+of three. It must be said just as plainly that on those pages extraction and the base gate
+read **the same image**: there the first two channels can fail the same way, and what stays
+independent is the third. How to give the first two their independence back on those pages —
+different renderings, different roles, or an inversion of the channels — is a **declared
+debt of M2**.
 
 → the episodes behind this: [journal/03](../journal/03-the-third-channel.md).
 

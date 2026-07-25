@@ -113,7 +113,7 @@ altri principi la completano, documentati nei registri di architettura
 
 - **Gate a due livelli, più un arbitro.** Il gate base gira sulle note che portano
   formule o valori; il gate pieno, costoso, scatta solo quando un verdetto **accusa la
-  fonte**. Le discrepanze non salgono al gate costoso: le scioglie l'**arbitro**, l'unico
+  fonte** — oppure la nota è un **anchor di benchmark**. Le discrepanze non salgono al gate costoso: le scioglie l'**arbitro**, l'unico
   che firma. Qualità dove serve, costo dove non serve.
 - **Il verdetto obbligatorio è esso stesso una sorgente di errore.** Obbligare una
   funzione a emettere un verdetto pass/fail su ogni elemento fabbrica falsa sicurezza.
@@ -304,7 +304,11 @@ Dichiarati in cima, perché l'onestà sui limiti è parte del metodo:
   deliberata, non un difetto.
 - **“Provider-agnostico” è un impegno di disegno, non ancora un adattatore finito.** Il
   metodo è descritto per essere portabile tra modelli; oggi gira su Claude Code.
-  Collegare un altro fornitore richiede ancora lavoro.
+  Collegare un altro fornitore richiede ancora lavoro. Due vincoli sono impliciti e vanno
+  detti: le funzioni che leggono dall'immagine richiedono modelli **multimodali** — il
+  metodo non è portabile su un fornitore solo-testo; e l'orchestrazione di riferimento
+  assume **sessioni con contesto limitato**, dato che le regole di arresto sono scritte in
+  percentuale di contesto occupato.
 - **I benchmark pubblici arrivano con M4.** Fino ad allora questo README descrive un
   **metodo** ed evita deliberatamente di citare numeri non ancora riproducibili da
   questo repository. È onestà, non debolezza.

@@ -89,4 +89,6 @@ male, che nessuno riaprirà più.
 
 ---
 
-**Decisione collegata:** [ADR-0005 — Il costo è intrinseco alla qualità](../architecture/decisions/0005-cost-is-intrinsic-to-quality.it.md)
+**Decisione collegata:** [ADR-0007 — I limiti di corsa sono arresti, non quote](../architecture/decisions/0007-run-limits-are-shutdowns.it.md) — le regole raccontate qui, scritte come decisione.
+
+**Vedi anche:** [ADR-0005 — Il costo è intrinseco alla qualità](../architecture/decisions/0005-cost-is-intrinsic-to-quality.it.md)

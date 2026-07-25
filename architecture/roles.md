@@ -17,7 +17,7 @@ do · Why it exists**.
 
 ## Director (orchestrator and adjudicator)
 
-- **Mission:** **it orchestrates and signs; it does not produce.** It sets the pace of the
+- **Mission:** **it orchestrates and signs; it does not produce notes.** It sets the pace of the
   pipeline — chooses what to work on, in what order, and sends each note through the stages.
   But it is also the **third party that decides**: it redoes the others' computations, runs
   the **third reading from the text layer**, settles divergences between extraction and
@@ -36,7 +36,14 @@ do · Why it exists**.
 - **Why it exists:** because **the last signature errs like every other role — only nobody
   checks it.** The earlier stages check each other; the one that signs has no one above it.
   The counterweight can only be a written procedure that role must run on itself, before
-  every certification.
+  every certification. And there is more to say: **channel 3 is self-produced** — the same
+  role runs it, then judges and signs. Where the source publishes a number that the formula
+  must reproduce, the source's own arithmetic narrows the room for judgement: either the
+  computation closes or it does not. Where that number does not exist, channel 3 is a
+  **reading**, and like every reading it can fail. That is why the written procedure is not
+  a formality: it leaves a **written trace** of what was checked before each signature, and
+  it comes with the rule that an error of the director's own is declared and reopens the
+  note — never settled silently.
 
 ## Librarian (extraction)
 
