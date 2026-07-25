@@ -1,5 +1,7 @@
 # 05 — La lettura ancorata
 
+🇬🇧 *This page is also available in [English](05-the-anchored-reading.md).*
+
 *Voce di diario. I dati vengono da un uso della pipeline precedente a questo progetto,
 riportati in forma generica.*
 
@@ -64,7 +66,7 @@ di essere un canale.
 
 La formulazione è semplice, e più difficile da rispettare di quanto sembri:
 
-> **Il bersaglio si indica per posizione e grandezza. Mai per valore.**
+> **Il bersaglio si indica per posizione e numero. Mai per valore.**
 
 *«L'equazione 12 a pagina 7, il coefficiente al primo membro»* — legittimo. *«L'equazione 12
 dovrebbe riportare X»* — vietato, in qualunque forma, anche parafrasata, anche come

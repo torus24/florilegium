@@ -1,5 +1,7 @@
 # 04 — When the chain stops itself
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](04-when-the-chain-stops-itself.it.md).*
+
 *Journal entry. The data comes from prior use of the pipeline that preceded this project,
 reported in generic form.*
 

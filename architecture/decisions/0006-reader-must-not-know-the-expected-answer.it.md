@@ -1,5 +1,7 @@
 # ADR-0006 — Chi rilegge la fonte non deve conoscere la risposta attesa
 
+🇬🇧 *This page is also available in [English](0006-reader-must-not-know-the-expected-answer.md).*
+
 **Status:** accepted
 
 ---
@@ -95,7 +97,7 @@ anello solo, non ha spostato nulla: ha prodotto la convinzione di essere protett
 7. **I campi liberi sono la via di rientro, e vanno normati per primi.** Le voci del tipo
    *«valori dichiarati per questa nota»* o *«sospetti da giudicare»* sono punti in cui la
    forma attesa rientra senza che nessuno abbia deciso di farla rientrare. Vanno vincolati
-   a posizione e grandezza nel testo stesso del prompt, come tutto il resto.
+   a posizione e numero nel testo stesso del prompt, come tutto il resto.
 8. **L'adozione si verifica sui prompt, uno per uno.** Il controllo è meccanico: si apre
    ogni prompt di verifica in vigore e si cerca la regola. Fin quando c'è un prompt scoperto
    la decisione non è applicata, per quanto sia applicata altrove.

@@ -1,5 +1,7 @@
 # ADR-0002 — The mandatory verdict is itself a source of error
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](0002-verdict-as-source-of-error.it.md).*
+
 **Status:** accepted
 
 ---

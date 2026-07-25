@@ -1,5 +1,7 @@
 # Architecture — the pipeline roles
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](roles.it.md).*
+
 The pipeline is a sequence of **roles**, each with a **single task** and well-defined start
 and end conditions. The underlying rule:
 

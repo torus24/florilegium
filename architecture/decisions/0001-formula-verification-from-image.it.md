@@ -1,5 +1,7 @@
 # ADR-0001 — L'OCR-testo non è affidabile per le formule → verifica indipendente dall'immagine
 
+🇬🇧 *This page is also available in [English](0001-formula-verification-from-image.md).*
+
 **Status:** accepted
 
 ---
@@ -63,7 +65,7 @@ fatto, una resa che non si faceva.
    punto d'uso; *pieno* (verifica dall'immagine a ≥400 dpi, **con** verdetto) **solo dove
    un verdetto accusa la fonte**, o la nota è un anchor di benchmark — perché un errore
    silenzioso non produce nessuna segnalazione. Una discrepanza trovata al livello base
-   apre l'**adjudication dell'arbitro**, non il gate costoso.
+   apre il **giudizio dell'arbitro**, non il gate costoso.
 
 ## Conseguenze
 

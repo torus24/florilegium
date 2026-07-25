@@ -1,5 +1,7 @@
 # 03 — Il terzo canale
 
+🇬🇧 *This page is also available in [English](03-the-third-channel.md).*
+
 *Voce di diario. I dati vengono da un uso della pipeline precedente a questo progetto,
 riportati in forma generica.*
 

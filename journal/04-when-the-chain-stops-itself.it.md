@@ -1,5 +1,7 @@
 # 04 — Quando la catena si spegne da sola
 
+🇬🇧 *This page is also available in [English](04-when-the-chain-stops-itself.md).*
+
 *Voce di diario. I dati vengono da un uso della pipeline precedente a questo progetto,
 riportati in forma generica.*
 

@@ -1,5 +1,7 @@
 # ADR-0003 — One model per role: the strong one where you judge, the cheap one where you execute
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](0003-model-selection.it.md).*
+
 **Status:** accepted
 
 ---

@@ -1,5 +1,7 @@
 # Example 01 — a formula the text layer silently broke
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](README.it.md).*
+
 This is the worked example for **M1**. There is no engine yet (that is M2), so everything
 here is **reproducible by hand** with two commands from `poppler-utils` — no API key, no
 model, no account. What the pipeline automates, you can do manually in five minutes and see
@@ -68,6 +70,10 @@ What comes out:
 nðT; εÞ ¼ Cε ðε  ε0 Þ þ CT ðT  T0 Þ þ n0 ðT0 ; ε0 Þ
 ```
 
+**If the output is empty**, nothing is broken and you did nothing wrong: your copy is
+probably the corrected proof, where §2.1 sits on PDF page **3** — rerun with `-f 3 -l 3`.
+The command does not fail, it simply returns nothing.
+
 Some of this damage is loud and harmless: `ð` for `(`, `Þ` for `)`, `¼` for `=`, `þ` for `+`
 — a font-encoding mismatch that any reader spots instantly, and that a language model
 repairs correctly without hesitation.
@@ -94,6 +100,10 @@ at what channel 1 produced:
 ```bash
 pdftoppm -r 400 -f 2 -l 2 -png paper.pdf page
 ```
+
+This writes **`page-02.png`** in the current directory — poppler pads the number to the
+length of the document, and the published article has 23 pages. Open it with any image
+viewer and look for Eq. (1), in §2.1.
 
 The printed equation is:
 

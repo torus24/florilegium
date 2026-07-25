@@ -1,5 +1,7 @@
 # 05 — The anchored reading
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](05-the-anchored-reading.it.md).*
+
 *Journal entry. The data comes from prior use of the pipeline that preceded this project,
 reported in generic form.*
 

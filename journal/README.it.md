@@ -1,5 +1,7 @@
 # Journal — note di campo
 
+🇬🇧 *This page is also available in [English](README.md).*
+
 Un ADR registra una **decisione**: contesto, ipotesi, misura, conseguenza. Una voce di
 journal registra l'**episodio che l'ha imposta** — cosa è andato storto, come è stato
 trovato, e spesso quanto poco è mancato perché non lo si trovasse mai.

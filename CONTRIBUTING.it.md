@@ -1,5 +1,7 @@
 # Contribuire a florilegium
 
+🇬🇧 *This page is also available in [English](CONTRIBUTING.md).*
+
 Grazie dell'interesse. florilegium è, prima di tutto, una **metodologia pubblicata** —
 quindi i contributi più preziosi, in questo momento, sono idee, critiche al metodo e
 riproduzioni, non solo codice.

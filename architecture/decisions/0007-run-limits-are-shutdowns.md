@@ -1,5 +1,7 @@
 # ADR-0007 — Run limits are shutdowns, not quotas
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](0007-run-limits-are-shutdowns.it.md).*
+
 **Status:** accepted
 
 ---

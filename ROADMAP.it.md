@@ -1,5 +1,7 @@
 # Roadmap
 
+🇬🇧 *This page is also available in [English](ROADMAP.md).*
+
 florilegium viene rilasciato **a livelli**. Ogni milestone ha un deliverable pubblicabile e
 una **definition of done** (DoD): la successiva non parte finché la DoD non è verde. È una
 scelta deliberata — qui il valore sono il metodo e le decisioni, quindi la *storia* esce

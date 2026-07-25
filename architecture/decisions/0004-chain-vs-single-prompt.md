@@ -1,5 +1,7 @@
 # ADR-0004 — A multi-agent chain, not a single prompt
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](0004-chain-vs-single-prompt.it.md).*
+
 **Status:** accepted
 
 ---

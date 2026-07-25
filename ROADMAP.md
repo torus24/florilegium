@@ -1,5 +1,7 @@
 # Roadmap
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](ROADMAP.it.md).*
+
 florilegium is released **in layers**. Each milestone has a publishable deliverable and a
 **definition of done** (DoD): the next one does not start until the DoD is green. This is
 deliberate — the value here is the method and the decisions, so the *story* ships before

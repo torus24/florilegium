@@ -1,5 +1,7 @@
 # Architecture — the quality gates
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](quality-gates.it.md).*
+
 The **quality gates** are the methodological core of florilegium: the point where an
 extracted note is put to the test before it enters the vault. They are designed around
 four ideas, each with a record behind it — an ADR, a journal entry, or both.

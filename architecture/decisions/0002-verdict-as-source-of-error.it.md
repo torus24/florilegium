@@ -1,5 +1,7 @@
 # ADR-0002 — Il verdetto obbligatorio è esso stesso una sorgente di errore
 
+🇬🇧 *This page is also available in [English](0002-verdict-as-source-of-error.md).*
+
 **Status:** accepted
 
 ---

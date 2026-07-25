@@ -1,5 +1,7 @@
 # Contributing to florilegium
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](CONTRIBUTING.it.md).*
+
 Thanks for your interest. florilegium is, first, a **published methodology** — so the most
 valuable contributions right now are ideas, critiques of the method, and reproductions,
 not just code.

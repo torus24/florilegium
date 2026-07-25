@@ -77,12 +77,12 @@ chiude questo punto cieco:
    alta risoluzione.
 2. **Ri-trascrivi in modo indipendente.** Una fase separata rilegge la formula
    *dall'immagine*, senza il ragionamento di chi l'ha estratta e senza che le venga
-   detto cosa aspettarsi: i bersagli le sono indicati per **posizione e grandezza**, mai
+   detto cosa aspettarsi: i bersagli le sono indicati per **posizione e numero**, mai
    per valore. La sua trascrizione si chiude **prima** che le sia consentito guardare la
    prima — così non può ereditarne gli errori.
 3. **Confronta in modo incrociato.** Le due letture indipendenti vengono messe a
    confronto. L'accordo è evidenza; il disaccordo non decide niente da solo: apre
-   l'**adjudication dell'arbitro**, che dispone di un canale che nessuna delle due
+   il **giudizio dell'arbitro**, che dispone di un canale che nessuna delle due
    letture ha usato.
 4. **Interroga un canale che non sta leggendo affatto.** Dove la fonte pubblica un valore
    che la formula deve riprodurre — un numero svolto, un caso limite, il bilancio
@@ -114,8 +114,9 @@ altri principi la completano, documentati nei registri di architettura
 
 - **Gate a due livelli, più un arbitro.** Il gate base gira sulle note che portano
   formule o valori; il gate pieno, costoso, scatta solo quando un verdetto **accusa la
-  fonte** — oppure la nota è un **anchor di benchmark**. Le discrepanze non salgono al gate costoso: le scioglie l'**arbitro**, l'unico
-  che firma. Qualità dove serve, costo dove non serve.
+  fonte** — oppure la nota è un **anchor di benchmark**. Le discrepanze non salgono al
+  gate costoso: le scioglie l'**arbitro**, l'unico che firma. Qualità dove serve, costo
+  dove non serve.
 - **Il verdetto obbligatorio è esso stesso una sorgente di errore.** Obbligare una
   funzione a emettere un verdetto pass/fail su ogni elemento fabbrica falsa sicurezza.
   florilegium tratta il verdetto come evidenza da pesare, non come una verità assoluta —
@@ -263,7 +264,7 @@ non compete sull'estrazione; in linea di principio può appoggiarsi a ciascuno d
 loro. Quello che aggiunge è la **verifica avversariale**: una seconda lettura
 indipendente della formula dall'immagine della pagina, fatta da una funzione che non
 ha mai visto la prima lettura e a cui non viene mai detto cosa aspettarsi, seguita da
-un confronto incrociato e, in caso di disaccordo, dall'adjudication di un arbitro
+un confronto incrociato e, in caso di disaccordo, dal giudizio di un arbitro
 che dispone di un canale che nessuna delle due letture ha usato. Un estrattore ti consegna una
 risposta; florilegium ti dice se fidarti.
 

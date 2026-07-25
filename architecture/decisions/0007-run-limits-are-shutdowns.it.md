@@ -1,5 +1,7 @@
 # ADR-0007 — I limiti di corsa sono arresti, non quote
 
+🇬🇧 *This page is also available in [English](0007-run-limits-are-shutdowns.md).*
+
 **Stato:** accettata
 
 ---

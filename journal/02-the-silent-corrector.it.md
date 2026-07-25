@@ -1,5 +1,7 @@
 # 02 — Il correttore silenzioso
 
+🇬🇧 *This page is also available in [English](02-the-silent-corrector.md).*
+
 *Voce di diario. I dati vengono da un uso della pipeline precedente a questo progetto,
 riportati in forma generica.*
 

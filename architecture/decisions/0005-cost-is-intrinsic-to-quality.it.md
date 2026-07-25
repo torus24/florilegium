@@ -1,5 +1,7 @@
 # ADR-0005 — Il costo in token è in gran parte intrinseco alla qualità (un'ottimizzazione respinta)
 
+🇬🇧 *This page is also available in [English](0005-cost-is-intrinsic-to-quality.md).*
+
 **Status:** accepted *(documenta una proposta di ottimizzazione **respinta**)*
 
 ---

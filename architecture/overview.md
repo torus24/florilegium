@@ -1,5 +1,7 @@
 # Architecture — overview
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](overview.it.md).*
+
 florilegium turns collections of technical PDFs into a **verifiable** Markdown knowledge
 base. It is not a single prompt that “reads the PDF and writes the notes”: it is a
 **staged pipeline**, where each stage is a role with a single responsibility, and quality

@@ -1,5 +1,7 @@
 # 02 — The silent corrector
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](02-the-silent-corrector.it.md).*
+
 *Journal entry. The data comes from prior use of the pipeline that preceded this project,
 reported in generic form.*
 

@@ -1,5 +1,7 @@
 # 01 — Il refuso che non c'era
 
+🇬🇧 *This page is also available in [English](01-the-typo-that-was-not-there.md).*
+
 *Voce di diario. Racconta un episodio reale e cosa ne è cambiato nel metodo. I dati vengono
 da un uso della pipeline precedente a questo progetto, riportati in forma generica.*
 

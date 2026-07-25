@@ -1,5 +1,7 @@
 # Architettura — i gate di qualità
 
+🇬🇧 *This page is also available in [English](quality-gates.md).*
+
 I **gate di qualità** sono il cuore metodologico di florilegium: il punto in cui una nota
 estratta viene messa alla prova prima di entrare nel vault. Sono progettati intorno a
 quattro idee, ognuna con un registro alle spalle — un ADR, una voce di journal, o entrambi.
@@ -44,7 +46,7 @@ pieno **a prescindere da qualunque accusa**: per questo sono il secondo innesto.
 L'escalation ha **due innesti**, e portano in due posti diversi:
 
 - **per segnalazione** — uno o più scarti al livello base non fanno scattare il controllo
-  costoso: aprono l'**adjudication dell'arbitro**, con lettura dal layer di testo
+  costoso: aprono il **giudizio dell'arbitro**, con lettura dal layer di testo
   obbligatoria. Chi ha trovato la differenza non è chi la giudica.
 - **per accusa** — qualunque verdetto che dica *la fonte sbaglia* impone la resa del rigo
   conteso a **≥400 dpi** prima che si possa firmare. A qualsiasi livello, senza bisogno di
@@ -89,7 +91,7 @@ all'arbitro, che lo pesa e **firma**: nessun livello chiude da solo.
 
 - L'accordo tra le due letture è **evidenza, non prova**: due canali possono sbagliare
   insieme (vedi §3).
-- Il disaccordo non promuove né boccia: apre l'**adjudication dell'arbitro** — e, se resta
+- Il disaccordo non promuove né boccia: apre il **giudizio dell'arbitro** — e, se resta
   irrisolto, la quarantena.
 - La resa ad alta risoluzione del rigo conteso è **obbligatoria**, non "a richiesta":
   lasciata alla discrezione, non si faceva mai. → motivazione e dati nell'
@@ -202,7 +204,7 @@ a punto d'uso»**, e il suo campo di verifica resta vuoto. Non è persa e non è
 la differenza è scritta dove un lettore la vede davvero.
 
 Una nota trattenuta si sblocca solo su **decisione esplicita**, mai da sola, e lo sblocco
-riesegue il **solo passo mancante** — il gate a immagine, l'adjudication, o entrambi. Se
+riesegue il **solo passo mancante** — il gate a immagine, l'arbitrato, o entrambi. Se
 ancora non chiude, la nota si corregge fuori catena oppure si elimina: anche quella è una
 decisione, non un automatismo. Le correzioni sono sempre **dichiarate**; una correzione
 silenziosa è essa stessa un difetto (vedi

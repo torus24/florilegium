@@ -1,5 +1,7 @@
 # 01 — The typo that was not there
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](01-the-typo-that-was-not-there.it.md).*
+
 *Journal entry. It recounts a real episode and what changed in the method because of it.
 The data comes from prior use of the pipeline that preceded this project, reported in
 generic form.*

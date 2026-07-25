@@ -1,5 +1,7 @@
 # ADR-0001 — OCR text is not reliable for formulas → independent verification from the image
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](0001-formula-verification-from-image.it.md).*
+
 **Status:** accepted
 
 ---

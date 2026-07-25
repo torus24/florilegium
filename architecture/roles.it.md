@@ -1,5 +1,7 @@
 # Architettura — le funzioni della pipeline
 
+🇬🇧 *This page is also available in [English](roles.md).*
+
 La pipeline è una sequenza di **funzioni**, ognuna con un **unico compito** e
 requisiti di inizio e fine ben definiti. Regola di fondo:
 
@@ -82,9 +84,9 @@ Ogni funzione è descritta con lo stesso schema: **Missione · Input · Output �
   una formula o un valore a punto d'uso; le esclusioni si dichiarano una per una, mai in
   blocco.
 - **Input:** la nota da controllare (senza il ragionamento di chi ha estratto) e le pagine
-  rese a immagine. I bersagli gli sono indicati per posizione e grandezza, mai per valore.
+  rese a immagine. I bersagli gli sono indicati per posizione e numero, mai per valore.
 - **Output:** l'elenco delle **differenze** rispetto alla nota, oppure "nessuna differenza".
-  Una differenza apre l'**adjudication dell'arbitro**, non il livello pieno. Più, per ogni
+  Una differenza apre il **giudizio dell'arbitro**, non il livello pieno. Più, per ogni
   glifo di cui non è sicuro, un
   **dubbio dichiarato**: un dubbio dichiarato vale più di una lettura sicura sbagliata.
 - **Cosa NON fa:** **non emette verdetti.** Non dice "fedele" né "non fedele", non giudica
@@ -106,12 +108,12 @@ Ogni funzione è descritta con lo stesso schema: **Missione · Input · Output �
 - **Input:** la nota contesa e l'immagine ad alta risoluzione della pagina/rigo.
 - **Output:** un **verdetto motivato** — *fedele*, *fedele con rilievi* oppure *non fedele*
   — insieme a che cosa servirebbe per chiudere il caso. Non firma: il verdetto torna
-  all'arbitro, che rifà i conti e firma; un *non fedele* che l'adjudication non riesce a
+  all'arbitro, che rifà i conti e firma; un *non fedele* che l'arbitrato non riesce a
   sciogliere è ciò che manda la nota in quarantena (vedi
   [gate di qualità](quality-gates.it.md)).
 - **Cosa NON fa:** non "corregge" una fonte senza prova indipendente più forte; non
   indovina dove nemmeno l'immagine è leggibile — segnala. E **non riceve la risposta
-  attesa**: il prompt indica i bersagli per **posizione e grandezza**, mai per valore, e
+  attesa**: il prompt indica i bersagli per **posizione e numero**, mai per valore, e
   non contiene la forma attesa — né nelle istruzioni, né attraverso campi liberi che la
   fanno rientrare. La nota gli viene consegnata *per il confronto*, che però si apre solo
   **dopo** che la sua trascrizione è chiusa: è la separazione fra chi legge e chi giudica

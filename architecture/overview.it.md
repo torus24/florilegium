@@ -1,5 +1,7 @@
 # Architettura — panoramica
 
+🇬🇧 *This page is also available in [English](overview.md).*
+
 florilegium trasforma raccolte di PDF tecnici in una knowledge base Markdown
 **verificabile**. Non è un singolo prompt che "legge il PDF e scrive le note": è una
 **pipeline a fasi**, dove ogni fase è una funzione con un unico compito, e la qualità

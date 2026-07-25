@@ -1,5 +1,7 @@
 # ADR-0006 — Whoever re-reads the source must not know the expected answer
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](0006-reader-must-not-know-the-expected-answer.it.md).*
+
 **Status:** accepted
 
 ---

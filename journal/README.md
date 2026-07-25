@@ -1,5 +1,7 @@
 # Journal — field notes
 
+🇮🇹 *Questa pagina è disponibile anche in [italiano](README.it.md).*
+
 An ADR records a **decision**: context, hypothesis, measurement, consequence. A journal
 entry records the **episode that forced it** — what went wrong, how it was found, and often
 how close it came to never being found at all.

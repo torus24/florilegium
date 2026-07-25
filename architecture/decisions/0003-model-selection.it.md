@@ -1,5 +1,7 @@
 # ADR-0003 — Un modello per funzione: il forte dove si giudica, l'economico dove si esegue
 
+🇬🇧 *This page is also available in [English](0003-model-selection.md).*
+
 **Status:** accepted
 
 ---
