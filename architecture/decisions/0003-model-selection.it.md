@@ -26,6 +26,17 @@ economico**.
 > benchmark** (quello è M4). Avvertenza dichiarata: la baseline è stata raccolta in parte
 > con un regime di gate diverso ⇒ **non è un A/B pienamente controllato**.
 
+**Che cosa conta come errore sostanziale.** Gli errori si contano **per classe**, e
+*sostanziale* è una classe precisa: la **trascrizione sostanzialmente errata** — un
+simbolo, un pedice, un esponente, un operatore, un segno, un'unità o un valore numerico
+che, presi come sono scritti, farebbero dare a un calcolo a valle un risultato diverso.
+La prova è operativa: **se uno script che consuma la nota producesse un numero diverso,
+l'errore è sostanziale.** Si contano **a parte**, e non entrano nei numeri qui sotto: i
+**falsi refusi di fonte** (accusare la fonte di un errore che non stampa), le
+**correzioni silenziose** e il verbatim alterato, le **attribuzioni di pagina o figura**
+sbagliate, e le sviste di rapporto. Sono classi diverse perché falliscono in modi
+diversi e si prevengono con presidi diversi — non perché contino meno.
+
 - **Estrazione con il modello forte (Opus) — baseline:** **≈ 0,163 errori sostanziali per
   nota** (8 errori sostanziali su 49 note, 3 articoli).
 - **Estrazione con un modello di fascia media (Sonnet), un articolo:** **≈ 0,50 errori

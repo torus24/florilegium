@@ -6,6 +6,8 @@ authors:
   - family-names: Santoro
     given-names: Raffaele
 repository-code: "https://github.com/torus24/florilegium"
-license: Apache-2.0
+license:
+  - Apache-2.0
+  - CC-BY-4.0
 version: 0.1.0
 date-released: "2026-07-25"

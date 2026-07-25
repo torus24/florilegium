@@ -7,7 +7,7 @@ the *code*.
 
 ---
 
-## M1 — The Story  ·  *in progress*
+## M1 — The Story  ·  *shipped — this repository*
 
 A repository that **explains** the project, without runnable code yet.
 
@@ -51,13 +51,24 @@ getting-started guide, and the gates produce a reproducible quality report.
 
 The data that shows the value is the *process*, not the model.
 
-- `benchmark/`: single-prompt vs. chain; OCR robustness; cost/token; note density — with
+- `benchmark/`: single-prompt vs. chain; OCR robustness; cost/token;
+  [note density](journal/04-when-the-chain-stops-itself.md) — with
   reproducible data.
 - Tests (unit + functional + regression), CI.
 - Tag **v1.0.0**, complete `CHANGELOG.md`.
 
 **DoD:** the benchmarks are reproducible from the repository; CI is green; the README
 points to the results.
+
+---
+
+## Versioning
+
+Versions follow [SemVer](https://semver.org). While the engine is not there yet, the
+project stays in **0.x**: each milestone gets its own minor tag — `v0.1.0` for M1,
+`v0.2.0` for M1.5, and so on — and `v1.0.0` arrives with M4, together with the
+benchmarks. Every tag is a GitHub Release, and [`CHANGELOG.md`](CHANGELOG.md) records
+what changed.
 
 ---
 

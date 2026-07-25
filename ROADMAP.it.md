@@ -7,7 +7,7 @@ prima del *codice*.
 
 ---
 
-## M1 — la Storia  ·  *in corso*
+## M1 — la Storia  ·  *rilasciata — questo repository*
 
 Un repository che **spiega** il progetto, ancora senza codice eseguibile.
 
@@ -51,13 +51,23 @@ primi passi, e i gate producono un rapporto di qualità riproducibile.
 
 I dati che mostrano che il valore è il *processo*, non il modello.
 
-- `benchmark/`: singolo prompt vs. catena; robustezza OCR; costo/token; densità di note —
+- `benchmark/`: singolo prompt vs. catena; robustezza OCR; costo/token;
+  [densità di note](journal/04-when-the-chain-stops-itself.it.md) —
   con dati riproducibili.
 - Test (unitari + funzionali + di regressione), CI.
 - Tag **v1.0.0**, `CHANGELOG.md` completo.
 
 **DoD:** i benchmark sono riproducibili dal repository; la CI è verde; il README punta ai
 risultati.
+
+---
+
+## Versioni
+
+Le versioni seguono [SemVer](https://semver.org). Finché il motore non c'è, il progetto
+resta in **0.x**: ogni milestone ha il suo tag minore — `v0.1.0` per M1, `v0.2.0` per
+M1.5, e così via — e la `v1.0.0` arriva con M4, insieme ai benchmark. Ogni tag è una
+Release su GitHub, e [`CHANGELOG.md`](CHANGELOG.md) registra che cosa è cambiato.
 
 ---
 

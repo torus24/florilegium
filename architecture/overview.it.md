@@ -12,7 +12,8 @@ Tre principi organizzano tutta l'architettura:
   un errore non può auto-confermarsi. → dettaglio in [roles](roles.it.md).
 - **Gate a due livelli, più un arbitro.** Un controllo base gira sulle note che portano
   formule o valori; il controllo pieno e costoso scatta solo quando un verdetto accusa la
-  fonte, o la nota è un anchor. Le discrepanze non salgono al controllo costoso: vanno
+  fonte, o la nota è un anchor di benchmark. Le discrepanze non salgono al controllo
+  costoso: vanno
   all'**arbitro**, l'unico che firma. → dettaglio in [quality-gates](quality-gates.it.md).
 - **Tre canali, non due.** Due letture che concordano possono essere lo stesso errore due
   volte, perciò il controllo usa anche un canale che non legge affatto: l'aritmetica
@@ -26,17 +27,17 @@ flowchart TB
     PDF["📄 PDF tecnico"] --> DISC["Discovery — cosa estrarre"]
     DISC --> TRI["Triage dei canali — dove il layer di testo non regge<br/>quelle pagine si leggono a immagine"]
     TRI --> EXTR["Estrazione — note atomiche<br/>canale 1 · layer di testo"]
-    EXTR --> PRE["Pre-gate meccanico — uno script, non un modello<br/>numero d'equazione e stringhe distintive sulla pagina dichiarata"]
+    EXTR --> PRE["Pre-gate meccanico — il controllo è dello script, non del modello<br/>numero d'equazione e stringhe distintive sulla pagina dichiarata"]
     PRE --> BASE["Gate BASE — ri-trascrittore, dall'IMMAGINE<br/>canale 2 · elenca le differenze, non giudica<br/>solo sulle note da gate: formule e valori a punto d'uso"]
     BASE --> ARB["⚖ DIRETTORE, l'arbitro — l'unico che firma<br/>rifà i conti PRIMA di aprire i verdetti altrui<br/>terza lettura dal layer di testo su ogni formula, sempre<br/>canale 3 · aritmetica interna dove la fonte pubblica un numero"]
     ARB -- "il verdetto accusa la fonte, oppure la nota è un anchor di benchmark" --> FULL["★ Gate PIENO — verificatore, IMMAGINE ≥400 dpi<br/>qui il verdetto c'è · obbligatorio su ogni riga che accusa la fonte"]
-    FULL --> ESITO{"Esito — il layer di testo non basta mai da solo"}
-    ARB --> ESITO
+    FULL -- "verdetto motivato — non firma" --> ARB
+    ARB --> ESITO{"Esito — il layer di testo non basta mai da solo"}
 
-    ESITO -- "coerente" --> VAULT["✅ Vault Markdown verificabile<br/>note atomiche · fonte + pagina verificate"]
-    ESITO -- "differenza sanabile" --> REGEN["Rigenerazione — correggi / ri-estrai"]
-    ESITO -- "irrisolvibile" --> QUAR["Quarantena — messo da parte, con il motivo"]
-    REGEN --> VAULT
+    ESITO -- "coerente, oppure divergenza sciolta con correzione dichiarata" --> VAULT["✅ Vault Markdown verificabile<br/>note atomiche · fonte + pagina verificate"]
+    ESITO -- "non chiude" --> HELD["Nota trattenuta — «non usare a punto d'uso»<br/>l'unità si chiude senza di lei"]
+    ESITO -- "caso tassativo di quarantena" --> QUAR["Quarantena — messa da parte, con il motivo"]
+    HELD -- "sblocco su decisione dell'autore: si riesegue il solo passo mancante" --> ARB
 
     classDef hero fill:#fbeecb,stroke:#b8860b,stroke-width:2px,color:#5c4300;
     classDef done fill:#dff0e4,stroke:#2f7d5b,stroke-width:2px,color:#123524;
@@ -46,6 +47,7 @@ flowchart TB
     class ARB judge;
     class VAULT done;
     class QUAR hold;
+    class HELD hold;
 ```
 
 | Fase | Cosa fa | In breve |
@@ -53,9 +55,9 @@ flowchart TB
 | **Discovery** | Decide cosa estrarre e in che ordine | La coda di lavoro |
 | **Triage dei canali** | Prima di estrarre, controlla su quali pagine il layer di testo regge davvero | Dove non regge, quella pagina si legge a immagine |
 | **Estrazione** | Produce note atomiche dal layer di testo | Una nota = un concetto/formula |
-| **Pre-gate meccanico** | Uno script verifica che numero d'equazione e stringhe distintive stiano sulla pagina dichiarata | Prende gli errori di pagina e di offset, a costo zero |
+| **Pre-gate meccanico** | Uno script verifica che numero d'equazione e stringhe distintive stiano sulla pagina dichiarata | Prende gli errori di pagina e di offset; l'esito è dello script, non di un modello |
 | **Gate di qualità e arbitro** | Base sulle note da gate; pieno solo su accusa alla fonte o anchor; l'arbitro rifà i conti, fa la terza lettura e firma | Il cuore metodologico |
-| **Rigenerazione** | Corregge o ri-estrae ciò che i gate hanno segnalato | Il ciclo di correzione |
+| **Esito, nota per nota** | Certifica; oppure **trattiene** la nota, marcata «non usare a punto d'uso»; oppure la mette in quarantena | Nessuna nota dubbia entra nel vault: l'unità si chiude senza di lei |
 | **Vault verificabile** | Note Markdown con fonte + pagina verificate, collegate da `[[wikilink]]` | L'output |
 
 ## La feature-eroe

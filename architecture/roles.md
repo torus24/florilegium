@@ -53,9 +53,16 @@ do · Why it exists**.
 ## Pre-gate operator
 
 - **Mission:** mechanically prepares the notes before the gates (normalizations,
-  preconditions, page-existence checks).
+  preconditions, page-existence checks). The **channel triage** is run here too: before
+  extraction, it reads the text layer page by page and reports, page by page, where it is
+  thin, empty or corrupted on the symbols. It reports; **reading that table and drawing up
+  the final list of pages to be read as images stays with the director**.
 - **Input:** the freshly extracted notes.
 - **Output:** notes ready for the gate, or discarded with a reason.
+- **How it works:** it runs a deterministic script and reports its outcome as it is. The
+  check belongs to the script, not to the model: the role exists because someone has to run
+  it inside the chain and report without touching anything — and even a mechanical task
+  needs a model that does not improvise (ADR-0003).
 - **What it does NOT do:** it does not get into the correctness of the content; it does
   mechanical, repeatable work.
 - **Why it exists:** taking the mechanical work off the gates keeps them focused on
@@ -92,7 +99,11 @@ do · Why it exists**.
   **mandatory** before signing off (see
   [ADR-0001](decisions/0001-formula-verification-from-image.md)).
 - **Input:** the contested note and the high-resolution image of the page/line.
-- **Output:** confirmation, correction, or quarantine of unresolvable content.
+- **Output:** a **reasoned verdict** — *faithful*, *faithful with remarks*, or *not
+  faithful* — together with what would be needed to close the case. It does not sign: the
+  verdict goes back to the adjudicator, who redoes the numbers and signs; a *not faithful*
+  the adjudication cannot settle is what sends the note to quarantine (see
+  [quality-gates](quality-gates.md)).
 - **What it does NOT do:** it does not “correct” a source without stronger independent
   proof; it does not guess where not even the image is legible — it flags. It also does
   **not receive the expected answer**: the prompt points at targets by **position and

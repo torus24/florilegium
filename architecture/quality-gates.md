@@ -19,6 +19,12 @@ adjudicator** who is the only one that signs:
 The base gate does not run “on every note”: it runs on **gate notes**. The others are
 **excluded one by one, with the reason on record** — never a wholesale exclusion.
 
+**A benchmark anchor** is a note designated in advance as a **fixed reference** for the M4
+benchmarks: its content has to stay verified to the letter, because later measurements are
+compared against it. The designation comes from outside the gate — it is a deliberate act,
+not something a role decides on its own while running. Anchors are verified at the full level **regardless of any
+accusation**: that is why they are the second entry point.
+
 Escalation has **two entry points**, and they lead to two different places:
 
 - **by flag** — one or more discrepancies at the base level do not trigger the expensive
@@ -31,6 +37,24 @@ Escalation has **two entry points**, and they lead to two different places:
   that produced the accusation. It is also the only entry point, together with benchmark
   anchors, that escalates to the full level.
 
+**Who can accuse the source.** The accusation does not originate in the full gate — it is
+what *sends* a note there. Three roles can produce one:
+
+- the **librarian**, when the extracted line does not hold up and it declares the suspicion
+  instead of silently normalising it (fidelity ≠ correctness →
+  [journal/02](../journal/02-the-silent-corrector.md));
+- the **adjudicator**, when the third channel does not close: the arithmetic the source
+  publishes does not come out of the printed formula;
+- the **verifier**, on a benchmark anchor — where the full level runs without an
+  accusation, and may produce one.
+
+The base gate is a borderline case, and worth stating precisely: when the print looks
+senseless it **flags a candidate source typo** instead of normalising it — but it stops at
+the flag. It lists differences, it does not accuse: a difference between two readings is not
+an accusation, and turning a candidate into an accusation is the adjudicator's call. Whoever accuses, at any level, owes
+the rendering of the disputed line at **≥400 dpi before the signature**: that is the entry
+point by accusation, and it has no exceptions.
+
 The second entry point exists because the first is not enough: a silent error generates no
 doubt, so a check that fires only on doubt does not fire in the cases it exists for. The
 third channel (§3) is unconditional for the same reason — on formula notes it runs **even
@@ -39,9 +63,14 @@ when the gate found nothing**. Especially then.
 ## 2. Third-party verification
 
 Whoever judges did not produce what they judge, and does not see its reasoning (see
-[roles](roles.md)). On formulas this becomes concrete: the full level does not trust the
-OCR text — it renders the page as an **image** at high resolution, re-transcribes the
-formula **independently**, and cross-checks it against the text reading.
+[roles](roles.md)). On formulas this happens on **two planes**. **On every gate note**, the
+base level re-transcribes from the image and cross-checks its own transcription against the
+note — it lists the differences and stops there. **Judging** those differences belongs to
+the **adjudicator**, who brings in the third reading from the text layer. **When a
+verdict accuses the source** — or the note is a benchmark anchor — the **full** level
+renders the disputed line at ≥400 dpi and re-transcribes it independently: that is where
+the verdict lives, and it is the reinforced proof, not the routine check. The verdict then
+goes back to the adjudicator, who weighs it and **signs**: no level closes on its own.
 
 - Agreement between the two readings is **evidence, not proof**: two channels can be
   wrong together (see §3).
@@ -106,8 +135,9 @@ on ambiguous evidence, the role produces a verdict anyway — often a wrong one.
 ```
 Extraction  (channel 1 · text layer)
    │
-   ├─ MECHANICAL pre-gate ... a script, not a model: checks that the equation number and
-   │                          the distinctive strings are on the declared page
+   ├─ MECHANICAL pre-gate ... the check is the script's, not the model's: it checks that
+   │                          the equation number and the distinctive strings are on the
+   │                          declared page
    │
    └─ BASE gate ........... gate notes only ...... re-transcription from the IMAGE  (channel 2)
                                                    lists the differences, does not judge
@@ -119,13 +149,35 @@ Extraction  (channel 1 · text layer)
              │
              ├─ all consistent ─────────────────────────────────────────────► Vault
              │
+             ├─ divergence settled ──► correction, always DECLARED, never silent ──► Vault
+             │
+             ├─ does not close ──► HELD NOTE — “do not use at point of use”
+             │                       the unit closes without it; releasing it is an
+             │                       explicit decision, and re-runs the MISSING STEP only
+             │
              └─ the verdict accuses the source  ·or·  the note is an anchor
                        ↓
                   FULL gate ★ ... the page IMAGE at ≥400 dpi, with a verdict   (channel 2)
                        │
-                       ├─ confirm / correct ────────────────────────────────► Vault
-                       └─ unresolvable ──► Quarantine  (neither promoted nor lost, with a reason)
+                       └─ reasoned verdict ──► back to the ADJUDICATOR, who weighs it and SIGNS
+                                 ├─ confirm / correct ──────────────────────► Vault
+                                 └─ unresolvable ──► Quarantine  (neither promoted nor lost, with a reason)
 ```
+
+## Held notes
+
+Quarantine is decided **note by note**, not per document — a whole item is quarantined only
+when the problem invalidates all of it. And most of the time the trouble is **one note out of
+N** and does not even call for quarantine: that note is **held**. The unit closes with the other
+N−1; the held note stays in place carrying, at the top of its body, the line **“do not use
+at point of use”**, and its verification field stays empty. It is not lost and it is not
+usable — and the difference is written where a reader will actually see it.
+
+A held note is released only by an **explicit decision**, never automatically, and the
+release re-runs the **missing step only** — the image gate, the adjudication, or both. If
+it still does not close, the note is corrected outside the chain or dropped: that too is a
+decision, not a default. Corrections are always **declared**; a silent correction is a
+defect in itself (see [journal/02](../journal/02-the-silent-corrector.md)).
 
 ## Quarantine
 

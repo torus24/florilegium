@@ -44,6 +44,12 @@ Un articolo particolarmente ricco — molte formule, molte note — **esaurisce 
 solo**, anche se il conteggio degli articoli è ancora ampiamente aperto. Nei fatti, corse
 impostate su cinque articoli si sono chiuse **più volte al primo**, per densità.
 
+**Che cos'è la densità, operativamente.** È il **numero di note che l'estrazione produce da
+un singolo documento**, contato a documento finito. Un documento è *denso* quando quel conto
+supera una soglia configurata: nelle corse raccontate qui la soglia era **10 note**, e i
+documenti che hanno chiuso la corsa da soli ne avevano prodotte **12, 14 e 11**. La soglia è
+stata poi alzata a 15 — è una manopola, non una legge di natura.
+
 Sembra un fallimento. Non lo è: è la misura che funziona. Il costo reale di un articolo non
 si misura in articoli, si misura in **quante cose vanno verificate** — e un documento denso
 consuma in un colpo solo il budget di attenzione che ne avrebbe retti cinque scarni. Un

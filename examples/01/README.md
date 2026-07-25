@@ -37,10 +37,25 @@ page 3 and the flags need adjusting.
 
 ---
 
+## Prerequisites
+
+Any Unix-like system (Linux, macOS, WSL) and `poppler-utils` — the two commands used
+below, `pdftotext` and `pdftoppm`, come from that package:
+
+```bash
+sudo apt install poppler-utils     # Debian/Ubuntu
+brew install poppler               # macOS
+```
+
+Download the article from the DOI above and save it in this directory as **`paper.pdf`** —
+that is the filename the commands expect.
+
+---
+
 ## Channel 1 — the text layer
 
 ```bash
-pdftotext -f 2 -l 2 paper.pdf - | sed -n '/relationship can be expressed/,+4p'
+pdftotext -f 2 -l 2 paper.pdf - | grep -A 4 'relationship can be expressed'
 ```
 
 What comes out:

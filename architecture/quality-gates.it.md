@@ -19,6 +19,12 @@ essi, **un arbitro** che è l'unico a firmare:
 Il gate base non gira «su ogni nota»: gira sulle **note da gate**. Le altre sono **escluse
 una per una, con la motivazione a verbale** — mai un'esclusione in blocco.
 
+**Un anchor di benchmark** è una nota designata in anticipo come **riferimento fisso** dei
+benchmark di M4: il suo contenuto deve restare verificato alla lettera, perché le misure
+successive si confrontano con quello. La designazione viene da fuori del gate — è un atto
+deliberato, non una scelta che una funzione prende per conto suo mentre gira. Gli anchor si verificano a livello
+pieno **a prescindere da qualunque accusa**: per questo sono il secondo innesto.
+
 L'escalation ha **due innesti**, e portano in due posti diversi:
 
 - **per segnalazione** — uno o più scarti al livello base non fanno scattare il controllo
@@ -31,6 +37,23 @@ L'escalation ha **due innesti**, e portano in due posti diversi:
   ha prodotto l'accusa. È anche l'unico innesto, insieme agli anchor di benchmark, che fa
   salire al livello pieno.
 
+**Chi può accusare la fonte.** L'accusa non nasce nel gate pieno: è ciò che *manda* una
+nota al gate pieno. A produrla possono essere tre funzioni:
+
+- il **bibliotecario**, quando il rigo estratto non regge e dichiara il sospetto invece di
+  normalizzarlo in silenzio (fedeltà ≠ correttezza →
+  [journal/02](../journal/02-the-silent-corrector.it.md));
+- l'**arbitro**, quando il terzo canale non chiude: l'aritmetica che la fonte pubblica non
+  torna con la formula stampata;
+- il **verificatore**, su un anchor di benchmark — dove il livello pieno gira senza
+  un'accusa, e può produrne una.
+
+Il gate base è un caso di confine, e va detto con precisione: quando la stampa non ha senso
+**segnala un refuso di fonte candidato** invece di normalizzarlo — ma si ferma alla
+segnalazione. Elenca differenze, non accusa: una differenza fra due letture non è un'accusa,
+e trasformare un candidato in un'accusa spetta all'arbitro. Chiunque accusi, a qualunque livello, deve la resa del rigo
+conteso a **≥400 dpi prima della firma**: è l'innesto per accusa, e non ha eccezioni.
+
 Il secondo innesto esiste perché il primo non basta: un errore silenzioso non genera
 dubbio, quindi un controllo che scatta solo sul dubbio non scatta proprio nei casi per cui
 esiste. Il terzo canale (§3) è incondizionato per la stessa ragione — sulle note di formula
@@ -39,10 +62,14 @@ gira **anche quando il gate non ha trovato nulla**. Soprattutto allora.
 ## 2. Verifica di terza parte
 
 Chi giudica non ha prodotto ciò che giudica, e non vede il suo ragionamento (vedi
-[roles](roles.it.md)). Sulle formule questo diventa concreto: il livello pieno non si fida
-del testo OCR — rende la pagina come **immagine** ad alta risoluzione, ri-trascrive la
-formula in modo **indipendente**, e la confronta in modo incrociato con la lettura
-testuale.
+[roles](roles.it.md)). Sulle formule questo avviene su **due piani**. **Su ogni nota da
+gate**, il livello base ri-trascrive dall'immagine e confronta in modo incrociato la propria
+trascrizione con la nota — elenca le differenze e si ferma lì. A **giudicarle** è
+l'**arbitro**, che ci porta la terza lettura dal layer di testo.
+**Quando un verdetto accusa la fonte** — o la nota è un anchor di benchmark — il livello
+**pieno** rende il rigo conteso a ≥400 dpi e lo ri-trascrive in modo indipendente: lì vive
+il verdetto, ed è la prova rafforzata, non il controllo di routine. Il verdetto torna poi
+all'arbitro, che lo pesa e **firma**: nessun livello chiude da solo.
 
 - L'accordo tra le due letture è **evidenza, non prova**: due canali possono sbagliare
   insieme (vedi §3).
@@ -56,7 +83,7 @@ testuale.
   trovare, lo trova. →
   [ADR-0006](decisions/0006-reader-must-not-know-the-expected-answer.it.md).
 
-Questo taglia in **due direzioni**: cattura gli errori silenziosi *e* azzera i falsi
+Questo taglia in **due direzioni**: cattura gli errori silenziosi *e* smonta i falsi
 allarmi (non "corregge" fonti che erano già giuste).
 
 ## 3. Tre canali, non due
@@ -108,8 +135,9 @@ sbagliato. Perciò:
 ```
 Estrazione  (canale 1 · layer di testo)
    │
-   ├─ pre-gate MECCANICO ... uno script, non un modello: verifica che il numero d'equazione
-   │                         e le stringhe distintive stiano sulla pagina dichiarata
+   ├─ pre-gate MECCANICO ... il controllo è dello script, non del modello: verifica che
+   │                         il numero d'equazione e le stringhe distintive stiano sulla
+   │                         pagina dichiarata
    │
    └─ gate BASE ........... solo note da gate ..... ri-trascrizione dall'IMMAGINE  (canale 2)
                                                    elenca le differenze, non giudica
@@ -121,13 +149,36 @@ Estrazione  (canale 1 · layer di testo)
              │
              ├─ tutto coerente ──────────────────────────────────────────────► Vault
              │
+             ├─ divergenza sciolta ──► correzione, sempre DICHIARATA, mai silenziosa ──► Vault
+             │
+             ├─ non chiude ──► NOTA TRATTENUTA — «non usare a punto d'uso»
+             │                   l'unità si chiude senza di lei; lo sblocco è una decisione
+             │                   esplicita, e riesegue il SOLO passo mancante
+             │
              └─ il verdetto accusa la fonte  ·oppure·  la nota è un anchor
                        ↓
                   gate PIENO ★ ... IMMAGINE ≥400 dpi, con verdetto                (canale 2)
                        │
-                       ├─ conferma / correzione ─────────────────────────────► Vault
-                       └─ irrisolvibile ──► Quarantena  (né promosso né perso, con motivo)
+                       └─ verdetto motivato ──► torna all'ARBITRO, che lo pesa e FIRMA
+                                 ├─ conferma / correzione ───────────────────► Vault
+                                 └─ irrisolvibile ──► Quarantena  (né promosso né perso, con motivo)
 ```
+
+## Note trattenute
+
+La quarantena si decide **nota per nota**, non per documento — l'elemento intero va in
+quarantena solo quando il problema lo inficia tutto. E quasi sempre il problema è **una nota
+su N** e non chiede nemmeno la quarantena: quella nota viene **trattenuta**. L'unità si chiude con le
+altre N−1; la nota trattenuta resta dov'è, portando in testa al corpo la riga **«non usare
+a punto d'uso»**, e il suo campo di verifica resta vuoto. Non è persa e non è usabile — e
+la differenza è scritta dove un lettore la vede davvero.
+
+Una nota trattenuta si sblocca solo su **decisione esplicita**, mai da sola, e lo sblocco
+riesegue il **solo passo mancante** — il gate a immagine, l'adjudication, o entrambi. Se
+ancora non chiude, la nota si corregge fuori catena oppure si elimina: anche quella è una
+decisione, non un automatismo. Le correzioni sono sempre **dichiarate**; una correzione
+silenziosa è essa stessa un difetto (vedi
+[journal/02](../journal/02-the-silent-corrector.it.md)).
 
 ## Quarantena
 

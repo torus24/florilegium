@@ -45,6 +45,12 @@ A particularly rich paper — many formulas, many notes — **exhausts a run on 
 when the paper count is still wide open. In fact, runs configured for five papers closed
 **on the first** more than once, on density alone.
 
+**What density is, operationally.** It is the **number of notes extraction produces from a
+single document**, counted once the document is finished. A document is *dense* when that
+count goes over a configured threshold: in the runs told here the threshold was **10
+notes**, and the documents that closed a run on their own had produced **12, 14 and 11**.
+The threshold was later raised to 15 — it is a dial, not a law of nature.
+
 It looks like a failure. It is not: it is the measure working. The real cost of a paper is
 not measured in papers, it is measured in **how many things must be verified** — and a dense
 document consumes in one go the attention budget that would have covered five thin ones. A

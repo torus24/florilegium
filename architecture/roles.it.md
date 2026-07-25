@@ -52,9 +52,17 @@ Ogni funzione è descritta con lo stesso schema: **Missione · Input · Output �
 ## Operatore pre-gate
 
 - **Missione:** prepara meccanicamente le note prima dei gate (normalizzazioni,
-  precondizioni, controlli di esistenza pagina).
+  precondizioni, controlli di esistenza pagina). Anche il **triage dei canali** si esegue qui:
+  prima dell'estrazione legge il layer di testo pagina per pagina e riferisce, pagina per
+  pagina, dove è scarno, vuoto o corrotto sui simboli. Riferisce e basta: **leggere quella
+  tabella e stilare l'elenco finale delle pagine da leggere a immagine resta del
+  direttore**.
 - **Input:** le note appena estratte.
 - **Output:** note pronte per il gate, oppure scartate con motivo.
+- **Come lavora:** lancia uno script deterministico e ne riporta l'esito così com'è. Il
+  controllo è dello script, non del modello: la funzione esiste perché qualcuno deve
+  eseguirlo dentro la catena e riferire senza aggiustare nulla — e anche un compito
+  meccanico richiede un modello che non improvvisi (ADR-0003).
 - **Cosa NON fa:** non entra nel merito della correttezza dei contenuti; fa lavoro
   meccanico e ripetibile.
 - **Perché esiste:** togliere il lavoro meccanico dai gate li mantiene focalizzati sul
@@ -89,7 +97,11 @@ Ogni funzione è descritta con lo stesso schema: **Missione · Input · Output �
   non dal testo OCR. La resa ad alta risoluzione del rigo conteso è **obbligatoria** prima
   di firmare (vedi [ADR-0001](decisions/0001-formula-verification-from-image.it.md)).
 - **Input:** la nota contesa e l'immagine ad alta risoluzione della pagina/rigo.
-- **Output:** conferma, correzione, oppure quarantena del contenuto irrisolvibile.
+- **Output:** un **verdetto motivato** — *fedele*, *fedele con rilievi* oppure *non fedele*
+  — insieme a che cosa servirebbe per chiudere il caso. Non firma: il verdetto torna
+  all'arbitro, che rifà i conti e firma; un *non fedele* che l'adjudication non riesce a
+  sciogliere è ciò che manda la nota in quarantena (vedi
+  [gate di qualità](quality-gates.it.md)).
 - **Cosa NON fa:** non "corregge" una fonte senza prova indipendente più forte; non
   indovina dove nemmeno l'immagine è leggibile — segnala. E **non riceve la risposta
   attesa**: il prompt indica i bersagli per **posizione e grandezza**, mai per valore, e

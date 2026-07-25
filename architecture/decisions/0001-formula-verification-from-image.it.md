@@ -67,7 +67,7 @@ fatto, una resa che non si faceva.
 ## Conseguenze
 
 - **Cosa risolve:** cattura errori di formula silenziosi che un singolo prompt non vede;
-  e — altrettanto importante — **azzera i falsi allarmi**, evitando di "correggere" fonti
+  e — altrettanto importante — **smonta i falsi allarmi**, evitando di "correggere" fonti
   che erano già giuste.
 - **Cosa costa:** più token e più passaggi. È il compromesso dichiarato del progetto —
   *knowledge quality over token efficiency*.

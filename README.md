@@ -55,10 +55,15 @@ has no way to notice it was handed a corrupted equation in the first place.
 OCR text.**
 
 Reading a page as an image is not new — Nougat, Mathpix, marker and MinerU all do
-it, often very well. What no extraction tool does is **verify**: each produces a
-*single* reading, and a single reading, however good, has no way to know when it is
-wrong. Formulas are precisely where silent errors are most likely and most costly,
-and a failure is invisible to any process that only ever holds one reading.
+it, often very well. **None of them verifies**: each produces a *single* reading, and
+a single reading, however good, has no way to know when it is wrong. Verification is
+not new either — cross-checking between multiple readings, LLM-as-judge,
+self-consistency all exist. What florilegium puts together, and what we have not found
+elsewhere for formulas, is verification that is **adversarial** (a second reading from
+a different channel, whose job is to disagree), **informationally independent** (the
+re-reader is never told the expected answer), and **third-party** (whoever reads is not
+whoever judges). Formulas are precisely where silent errors are most likely and most
+costly, and a failure is invisible to any process that only ever holds one reading.
 florilegium closes that blind spot:
 
 1. **Render, don't trust.** The relevant PDF page is rendered as a high-resolution
@@ -94,7 +99,9 @@ artifact.
 
 Taken together these make up florilegium’s **quality assurance** — not a checkbox at
 the end, but two-level gates and third-party verification woven through the pipeline.
-Two more principles complete it, documented in the architecture records:
+Two more principles complete it, documented in the architecture records
+([ADR-0001](architecture/decisions/0001-formula-verification-from-image.md),
+[ADR-0002](architecture/decisions/0002-verdict-as-source-of-error.md)):
 
 - **Two gate levels, plus an adjudicator.** The base gate runs on the notes that carry
   formulas or values; the full, expensive gate fires only when a verdict **accuses the
@@ -118,17 +125,17 @@ flowchart TB
     PDF["📄 Technical PDF"] --> DISC["Discovery — what to extract"]
     DISC --> TRI["Channel triage — where the text layer does not hold<br/>those pages are read as images"]
     TRI --> EXTR["Extraction — atomic notes<br/>channel 1 · text layer"]
-    EXTR --> PRE["Mechanical pre-gate — a script, not a model<br/>equation number and distinctive strings must be on the declared page"]
+    EXTR --> PRE["Mechanical pre-gate — the check is the script's, not the model's<br/>equation number and distinctive strings must be on the declared page"]
     PRE --> BASE["BASE gate — re-transcriber, from the IMAGE<br/>channel 2 · lists the differences, does not judge<br/>only on gate notes: formulas and point-of-use values"]
     BASE --> ARB["⚖ DIRECTOR, the adjudicator — the only one who signs<br/>redoes the numbers BEFORE opening anyone else's verdict<br/>third reading from the text layer on every formula, always<br/>channel 3 · the source's own arithmetic wherever it publishes a number"]
     ARB -- "the verdict accuses the source, or the note is a benchmark anchor" --> FULL["★ FULL gate — verifier, page IMAGE at ≥400 dpi<br/>this is where the verdict lives · mandatory on every line that accuses the source"]
-    FULL --> OUT{"Outcome — the text layer is never enough on its own"}
-    ARB --> OUT
+    FULL -- "reasoned verdict — it does not sign" --> ARB
+    ARB --> OUT{"Outcome — the text layer is never enough on its own"}
 
-    OUT -- "consistent" --> VAULT["✅ Verifiable Markdown vault<br/>atomic notes · source + page verified"]
-    OUT -- "fixable difference" --> REGEN["Regeneration — fix / re-extract"]
-    OUT -- "unresolvable" --> QUAR["Quarantine — set aside, with the reason"]
-    REGEN --> VAULT
+    OUT -- "consistent, or divergence settled with a declared correction" --> VAULT["✅ Verifiable Markdown vault<br/>atomic notes · source + page verified"]
+    OUT -- "does not close" --> HELD["Held note — “do not use at point of use”<br/>the unit closes without it"]
+    OUT -- "listed quarantine case" --> QUAR["Quarantine — set aside, with the reason"]
+    HELD -- "released by the author's decision: only the missing step is re-run" --> ARB
 
     classDef hero fill:#fbeecb,stroke:#b8860b,stroke-width:2px,color:#5c4300;
     classDef done fill:#dff0e4,stroke:#2f7d5b,stroke-width:2px,color:#123524;
@@ -138,6 +145,7 @@ flowchart TB
     class ARB judge;
     class VAULT done;
     class QUAR hold;
+    class HELD hold;
 ```
 
 Each stage is a **role** with a single responsibility and explicit pre/post
@@ -146,13 +154,17 @@ role’s reasoning, only its output. That separation — a verifier that is a ge
 **third party**, with no stake in the output it checks — is what makes the
 verification *independent* rather than self-confirming.
 
+In detail: [architecture overview](architecture/overview.md) ·
+[pipeline roles](architecture/roles.md) ·
+[quality gates](architecture/quality-gates.md).
+
 ---
 
 ## How it works (in brief)
 
 ```
 PDF → discovery → channel triage → extraction → mechanical pre-gate
-    → base gate → adjudicator (→ full gate ★) → regeneration → verifiable vault
+    → base gate → adjudicator (→ full gate ★) → verifiable vault | held | quarantine
 ```
 
 - **Discovery** decides what is worth extracting and in what order.
@@ -160,11 +172,17 @@ PDF → discovery → channel triage → extraction → mechanical pre-gate
   pages will be read as images.
 - **Extraction** produces atomic Markdown notes from the text layer.
 - **Mechanical pre-gate**: a script checks that the declared page really does carry the
-  equation number and the distinctive strings. No model, no cost.
+  equation number and the distinctive strings. The operator that runs it is a role like the
+  others, but the check belongs to the script: no model judgment, and the only cost is
+  running it.
 - **Gates and adjudicator** run the check described above: the base gate lists the
   differences, the adjudicator settles them and signs, and image verification at ≥400 dpi
   is the escalation path whenever the source is accused.
-- **Regeneration** repairs or re-extracts anything the gates flagged.
+- **The outcome is decided note by note.** What closes is signed. What does not is
+  **held** — marked “do not use at point of use”, with the unit closing without it; a held
+  note is released only by an explicit decision, which re-runs only the missing step. What
+  falls under one of the listed quarantine cases is set aside with its reason. Corrections
+  happen, but they are always **declared**, never silent.
 - The result is a vault of **atomic notes**, each carrying a frontmatter that records
   its verified source and page — so any claim can be traced back to the PDF it came
   from. The notes are **plain Markdown**, so they open in any editor and stay yours;
@@ -192,10 +210,14 @@ We release **in layers**, and each layer is complete in itself:
 
 | Milestone | What it adds | State |
 |---|---|---|
-| **M1 — the Story** | README, architecture, decision records (ADRs), one worked example | **in progress** |
+| **M1 — the Story** | README, architecture, decision records (ADRs), one worked example | **shipped — this repository** |
 | **M1.5 — the First Loop** | A short script that automates example 01 — the first thing that runs | planned |
 | **M2 — the Engine & the Gates** | The orchestrator, batching and session management + the generalized role prompts and the operational configuration of the gates | planned |
 | **M4 — Benchmarks & v1.0** | Single-prompt vs. chain, OCR-robustness, cost/token, with reproducible data + CI | planned |
+
+There is no M3: the former M2 and M3 were **merged** — an orchestrator without the role
+prompts is scaffolding, not a pipeline, so they ship together. M4 keeps its number so that
+the decision records that cite it stay valid. Full detail in [ROADMAP.md](ROADMAP.md).
 
 Why the code comes *after* the story: the value here is the **method and the
 decisions**, not a folder of scripts. Publishing the reasoning first is deliberate.
@@ -278,9 +300,15 @@ Stated up front, because honesty about limits is part of the method:
 
 ## License
 
+This repository carries **two licenses**, over distinct scopes: **code** (scripts,
+configuration, the future engine) is under Apache-2.0; **everything else** — README,
+`architecture/`, ADRs, `journal/`, `examples/`, diagrams — is under CC-BY-4.0. Full texts:
+[`LICENSE`](LICENSE) and [`LICENSES/CC-BY-4.0.txt`](LICENSES/CC-BY-4.0.txt).
+
 - **Code:** [Apache-2.0](LICENSE) — permissive, with an explicit patent grant.
-- **Documentation, diagrams and decision records:** [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/)
-  — free to reuse **with attribution**.
+- **Documentation, diagrams and decision records:**
+  [CC-BY-4.0](LICENSES/CC-BY-4.0.txt) — free to reuse **with attribution**
+  ([summary](https://creativecommons.org/licenses/by/4.0/)).
 
 Copyright © 2026 Raffaele Santoro.
 

@@ -27,17 +27,17 @@ flowchart TB
     PDF["📄 Technical PDF"] --> DISC["Discovery — what to extract"]
     DISC --> TRI["Channel triage — where the text layer does not hold<br/>those pages are read as images"]
     TRI --> EXTR["Extraction — atomic notes<br/>channel 1 · text layer"]
-    EXTR --> PRE["Mechanical pre-gate — a script, not a model<br/>equation number and distinctive strings must be on the declared page"]
+    EXTR --> PRE["Mechanical pre-gate — the check is the script's, not the model's<br/>equation number and distinctive strings must be on the declared page"]
     PRE --> BASE["BASE gate — re-transcriber, from the IMAGE<br/>channel 2 · lists the differences, does not judge<br/>only on gate notes: formulas and point-of-use values"]
     BASE --> ARB["⚖ DIRECTOR, the adjudicator — the only one who signs<br/>redoes the numbers BEFORE opening anyone else's verdict<br/>third reading from the text layer on every formula, always<br/>channel 3 · the source's own arithmetic wherever it publishes a number"]
     ARB -- "the verdict accuses the source, or the note is a benchmark anchor" --> FULL["★ FULL gate — verifier, page IMAGE at ≥400 dpi<br/>this is where the verdict lives · mandatory on every line that accuses the source"]
-    FULL --> OUT{"Outcome — the text layer is never enough on its own"}
-    ARB --> OUT
+    FULL -- "reasoned verdict — it does not sign" --> ARB
+    ARB --> OUT{"Outcome — the text layer is never enough on its own"}
 
-    OUT -- "consistent" --> VAULT["✅ Verifiable Markdown vault<br/>atomic notes · source + page verified"]
-    OUT -- "fixable difference" --> REGEN["Regeneration — fix / re-extract"]
-    OUT -- "unresolvable" --> QUAR["Quarantine — set aside, with the reason"]
-    REGEN --> VAULT
+    OUT -- "consistent, or divergence settled with a declared correction" --> VAULT["✅ Verifiable Markdown vault<br/>atomic notes · source + page verified"]
+    OUT -- "does not close" --> HELD["Held note — “do not use at point of use”<br/>the unit closes without it"]
+    OUT -- "listed quarantine case" --> QUAR["Quarantine — set aside, with the reason"]
+    HELD -- "released by the author's decision: only the missing step is re-run" --> ARB
 
     classDef hero fill:#fbeecb,stroke:#b8860b,stroke-width:2px,color:#5c4300;
     classDef done fill:#dff0e4,stroke:#2f7d5b,stroke-width:2px,color:#123524;
@@ -47,6 +47,7 @@ flowchart TB
     class ARB judge;
     class VAULT done;
     class QUAR hold;
+    class HELD hold;
 ```
 
 | Stage | What it does | In short |
@@ -54,9 +55,9 @@ flowchart TB
 | **Discovery** | Decides what to extract and in what order | The work queue |
 | **Channel triage** | Before extracting, checks on which pages the text layer actually holds | Where it does not, that page is read as an image |
 | **Extraction** | Produces atomic notes from the text layer | One note = one concept/formula |
-| **Mechanical pre-gate** | A script checks that the equation number and the distinctive strings are on the declared page | Catches page and offset errors, at zero cost |
+| **Mechanical pre-gate** | A script checks that the equation number and the distinctive strings are on the declared page | Catches page and offset errors; the outcome is the script's, not a model's |
 | **Quality gates and adjudicator** | Base on gate notes; full only on accusations against the source or anchors; the adjudicator redoes the numbers, performs the third reading and signs | The methodological core |
-| **Regeneration** | Fixes or re-extracts what the gates flagged | The correction loop |
+| **Outcome, note by note** | Certifies; or **holds** the note, marked “do not use at point of use”; or quarantines it | No doubtful note enters the vault: the unit closes without it |
 | **Verifiable vault** | Markdown notes with verified source + page, linked by `[[wikilinks]]` | The output |
 
 ## The hero feature

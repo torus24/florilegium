@@ -25,6 +25,16 @@ quality; and that for mechanical tasks the **cheapest** model would always be en
 > benchmark** (that is M4). Stated caveat: the baseline was collected partly under a
 > different gate regime ⇒ it is **not a fully controlled A/B**.
 
+**What counts as a substantial error.** Errors are counted **by class**, and *substantial*
+is a precise one: a **substantially wrong transcription** — a symbol, subscript, exponent,
+operator, sign, unit or numeric value that, taken as written, would make a downstream
+calculation give a different result. The test is operational: **if a script consuming the
+note would produce a different number, the error is substantial.** Counted **separately**,
+and not included in the figures below: **false source typos** (accusing the source of an
+error it does not print), **silent corrections** and altered verbatim, wrong **page or
+figure attributions**, and reporting slips. They are separate classes because they fail in
+different ways and are prevented by different safeguards — not because they matter less.
+
 - **Extraction with the strong model (Opus) — baseline:** **≈ 0.163 substantial errors
   per note** (8 substantial errors across 49 notes, 3 articles).
 - **Extraction with a mid-tier model (Sonnet), one article:** **≈ 0.50 substantial errors

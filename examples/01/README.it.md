@@ -37,10 +37,25 @@ stampata **3842**. I comandi qui sotto usano `-f 2 -l 2`; se la tua copia è la 
 
 ---
 
+## Prerequisiti
+
+Un sistema Unix-like (Linux, macOS, WSL) e `poppler-utils` — i due comandi usati sotto,
+`pdftotext` e `pdftoppm`, vengono da quel pacchetto:
+
+```bash
+sudo apt install poppler-utils     # Debian/Ubuntu
+brew install poppler               # macOS
+```
+
+Scarica l'articolo dal DOI qui sopra e salvalo in questa cartella come **`paper.pdf`**: è
+il nome che i comandi si aspettano.
+
+---
+
 ## Canale 1 — il layer-testo
 
 ```bash
-pdftotext -f 2 -l 2 paper.pdf - | sed -n '/relationship can be expressed/,+4p'
+pdftotext -f 2 -l 2 paper.pdf - | grep -A 4 'relationship can be expressed'
 ```
 
 Quello che esce:

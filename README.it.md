@@ -60,12 +60,17 @@ già corrotta.
 testo OCR.**
 
 Leggere una pagina come immagine non è una novità — Nougat, Mathpix, marker e MinerU
-lo fanno già, spesso molto bene. Quello che nessuno strumento di estrazione fa è
-**verificare**: ognuno produce una *singola* lettura, e una singola lettura, per
-quanto buona, non ha modo di sapere quando sbaglia. Le formule sono proprio il punto
-in cui gli errori silenziosi sono più probabili e più costosi, e un errore è
-invisibile a qualunque processo che possieda una sola lettura. florilegium chiude
-questo punto cieco:
+lo fanno già, spesso molto bene. **Nessuno di loro, però, verifica**: ognuno produce
+una *singola* lettura, e una singola lettura, per quanto buona, non ha modo di sapere
+quando sbaglia. Nemmeno la verifica è una novità in sé — il confronto fra letture
+multiple, il modello-giudice, la self-consistency esistono già. Quello che florilegium
+mette insieme, e che sulle formule non abbiamo trovato altrove, è una verifica **in
+contraddittorio** (una seconda lettura da un canale diverso, il cui compito è
+dissentire), **informativamente indipendente** (a chi rilegge non viene mai detta la
+risposta attesa) e **di terza parte** (chi legge non è chi giudica). Le formule sono
+proprio il punto in cui gli errori silenziosi sono più probabili e più costosi, e un
+errore è invisibile a qualunque processo che possieda una sola lettura. florilegium
+chiude questo punto cieco:
 
 1. **Visualizza, non fidarti.** La pagina PDF rilevante viene resa come **immagine** ad
    alta risoluzione.
@@ -95,14 +100,16 @@ prompt non può farlo — ha una sola lettura e nessuna seconda sorgente disinte
 che la contraddica.
 
 E taglia in due direzioni. Una lettura indipendente dall'immagine non cattura solo le
-corruzioni che il layer di testo ha mancato — **azzera anche i falsi allarmi**: i casi
+corruzioni che il layer di testo ha mancato — **smonta anche i falsi allarmi**: i casi
 in cui un controllo solo-testo “correggerebbe” una formula che nella fonte era in
 realtà giusta. È la resa del rigo conteso ad alta risoluzione a distinguere un vero
 errore di fonte da un artefatto dell'OCR.
 
 Nell'insieme, è la **quality assurance** di florilegium — non una casella spuntata alla
 fine, ma gate a due livelli e verifica di terza parte intessuti nella pipeline. Due
-altri principi la completano, documentati nei registri di architettura:
+altri principi la completano, documentati nei registri di architettura
+([ADR-0001](architecture/decisions/0001-formula-verification-from-image.it.md),
+[ADR-0002](architecture/decisions/0002-verdict-as-source-of-error.it.md)):
 
 - **Gate a due livelli, più un arbitro.** Il gate base gira sulle note che portano
   formule o valori; il gate pieno, costoso, scatta solo quando un verdetto **accusa la
@@ -125,17 +132,17 @@ flowchart TB
     PDF["📄 PDF tecnico"] --> DISC["Discovery — cosa estrarre"]
     DISC --> TRI["Triage dei canali — dove il layer di testo non regge<br/>quelle pagine si leggono a immagine"]
     TRI --> EXTR["Estrazione — note atomiche<br/>canale 1 · layer di testo"]
-    EXTR --> PRE["Pre-gate meccanico — uno script, non un modello<br/>numero d'equazione e stringhe distintive sulla pagina dichiarata"]
+    EXTR --> PRE["Pre-gate meccanico — il controllo è dello script, non del modello<br/>numero d'equazione e stringhe distintive sulla pagina dichiarata"]
     PRE --> BASE["Gate BASE — ri-trascrittore, dall'IMMAGINE<br/>canale 2 · elenca le differenze, non giudica<br/>solo sulle note da gate: formule e valori a punto d'uso"]
     BASE --> ARB["⚖ DIRETTORE, l'arbitro — l'unico che firma<br/>rifà i conti PRIMA di aprire i verdetti altrui<br/>terza lettura dal layer di testo su ogni formula, sempre<br/>canale 3 · aritmetica interna dove la fonte pubblica un numero"]
     ARB -- "il verdetto accusa la fonte, oppure la nota è un anchor di benchmark" --> FULL["★ Gate PIENO — verificatore, IMMAGINE ≥400 dpi<br/>qui il verdetto c'è · obbligatorio su ogni riga che accusa la fonte"]
-    FULL --> ESITO{"Esito — il layer di testo non basta mai da solo"}
-    ARB --> ESITO
+    FULL -- "verdetto motivato — non firma" --> ARB
+    ARB --> ESITO{"Esito — il layer di testo non basta mai da solo"}
 
-    ESITO -- "coerente" --> VAULT["✅ Vault Markdown verificabile<br/>note atomiche · fonte + pagina verificate"]
-    ESITO -- "differenza sanabile" --> REGEN["Rigenerazione — correggi / ri-estrai"]
-    ESITO -- "irrisolvibile" --> QUAR["Quarantena — messo da parte, con il motivo"]
-    REGEN --> VAULT
+    ESITO -- "coerente, oppure divergenza sciolta con correzione dichiarata" --> VAULT["✅ Vault Markdown verificabile<br/>note atomiche · fonte + pagina verificate"]
+    ESITO -- "non chiude" --> HELD["Nota trattenuta — «non usare a punto d'uso»<br/>l'unità si chiude senza di lei"]
+    ESITO -- "caso tassativo di quarantena" --> QUAR["Quarantena — messa da parte, con il motivo"]
+    HELD -- "sblocco su decisione dell'autore: si riesegue il solo passo mancante" --> ARB
 
     classDef hero fill:#fbeecb,stroke:#b8860b,stroke-width:2px,color:#5c4300;
     classDef done fill:#dff0e4,stroke:#2f7d5b,stroke-width:2px,color:#123524;
@@ -145,6 +152,7 @@ flowchart TB
     class ARB judge;
     class VAULT done;
     class QUAR hold;
+    class HELD hold;
 ```
 
 Ogni fase rappresenta una funzione con un unico compito e requisiti di inizio e fine
@@ -154,13 +162,17 @@ non accede mai al processo logico di quella precedente, ma riceve solo il suo ou
 nell'output che controlla — a rendere la verifica *indipendente* anziché
 auto-confermante.
 
+In dettaglio: [panoramica dell'architettura](architecture/overview.it.md) ·
+[le funzioni della pipeline](architecture/roles.it.md) ·
+[i gate di qualità](architecture/quality-gates.it.md).
+
 ---
 
 ## Come funziona (in breve)
 
 ```
 PDF → discovery → triage dei canali → estrazione → pre-gate meccanico
-    → gate base → arbitro (→ gate pieno ★) → rigenerazione → vault verificabile
+    → gate base → arbitro (→ gate pieno ★) → vault verificabile | trattenuta | quarantena
 ```
 
 - **Discovery** decide cosa vale la pena estrarre e in che ordine.
@@ -168,11 +180,18 @@ PDF → discovery → triage dei canali → estrazione → pre-gate meccanico
   quelle pagine si leggeranno a immagine.
 - **Estrazione** produce note Markdown atomiche dal layer di testo.
 - **Pre-gate meccanico**: uno script controlla che la pagina dichiarata contenga davvero
-  il numero d'equazione e le stringhe distintive. Nessun modello, nessun costo.
+  il numero d'equazione e le stringhe distintive. Chi lo lancia è una funzione come le
+  altre, ma il controllo è dello script: nessun giudizio di modello, e il costo è solo
+  quello di lanciare lo script.
 - **Gate e arbitro** eseguono il controllo descritto sopra: il gate base elenca le
   differenze, l'arbitro le scioglie e firma, e la verifica dall'immagine a ≥400 dpi è il
   percorso di escalation quando si accusa la fonte.
-- **Rigenerazione** ripara o ri-estrae tutto ciò che i gate hanno segnalato.
+- **L'esito si decide nota per nota.** Ciò che chiude viene firmato. Ciò che non chiude
+  resta **trattenuto** — marcato «non usare a punto d'uso», e l'unità si chiude senza di
+  lui; una nota trattenuta si sblocca solo su decisione esplicita, che riesegue il **solo
+  passo mancante**. Ciò che ricade in uno dei casi tassativi di quarantena viene messo da
+  parte, con il motivo. Le correzioni esistono, ma sono sempre **dichiarate**, mai
+  silenziose.
 - Il risultato è un vault di **note atomiche**, ognuna con un frontmatter che registra
   la fonte e la pagina verificate — così ogni affermazione è tracciabile fino al PDF
   da cui proviene. Le note sono **Markdown puro**, quindi si aprono in qualsiasi editor
@@ -201,10 +220,15 @@ Rilasciamo **a livelli**, e ogni livello è completo in sé:
 
 | Milestone | Cosa aggiunge | Stato |
 |---|---|---|
-| **M1 — la Storia** | README, architettura, registri delle decisioni (ADR), un esempio completo | **in corso** |
+| **M1 — la Storia** | README, architettura, registri delle decisioni (ADR), un esempio completo | **rilasciata — questo repository** |
 | **M1.5 — il Primo Ciclo** | Uno script breve che automatizza l'esempio 01 — la prima cosa che gira | pianificata |
 | **M2 — il Motore & i Gate** | Orchestratore, batch e session management + i prompt di funzione generalizzati e la configurazione operativa dei gate | pianificata |
 | **M4 — Benchmark & v1.0** | Singolo-prompt vs. catena, robustezza OCR, costo/token, con dati riproducibili + CI | pianificata |
+
+La M3 non c'è: le vecchie M2 e M3 sono state **fuse** — un orchestratore senza i prompt
+di funzione è un'impalcatura, non una pipeline, quindi escono insieme. La M4 mantiene il
+suo numero, così i registri delle decisioni che la citano restano validi. Dettaglio
+completo in [ROADMAP.it.md](ROADMAP.it.md).
 
 Perché il codice viene *dopo* la storia: qui il valore è il **metodo e le decisioni**,
 non una cartella di script. Pubblicare prima il ragionamento è una scelta deliberata.
@@ -289,9 +313,15 @@ Dichiarati in cima, perché l'onestà sui limiti è parte del metodo:
 
 ## Licenza
 
+Il repository ha **due licenze**, per perimetri distinti: il **codice** (script,
+configurazioni, futuro motore) sta sotto Apache-2.0; **tutto il resto** — README,
+`architecture/`, ADR, `journal/`, `examples/`, diagrammi — sta sotto CC-BY-4.0. Testi
+integrali: [`LICENSE`](LICENSE) e [`LICENSES/CC-BY-4.0.txt`](LICENSES/CC-BY-4.0.txt).
+
 - **Codice:** [Apache-2.0](LICENSE) — permissiva, con clausola brevetti esplicita.
-- **Documentazione, diagrammi e registri delle decisioni:** [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.it)
-  — liberamente riusabili **con attribuzione**.
+- **Documentazione, diagrammi e registri delle decisioni:**
+  [CC-BY-4.0](LICENSES/CC-BY-4.0.txt) — liberamente riusabili **con attribuzione**
+  ([sintesi](https://creativecommons.org/licenses/by/4.0/deed.it)).
 
 Copyright © 2026 Raffaele Santoro.
 
