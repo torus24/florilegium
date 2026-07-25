@@ -22,8 +22,9 @@ benchmark arrivano nelle milestone successive.
 ## Convenzioni
 
 - **Documentazione bilingue.** L'inglese è la versione canonica; lo specchio italiano porta
-  il suffisso `.it.md` (es. `README.md` ↔ `README.it.md`). Se ne modifichi una, segnala
-  l'altra così restano allineate.
+  il suffisso `.it.md` (es. `README.md` ↔ `README.it.md`). Lo specchio è **best-effort**:
+  può restare indietro, tranne `README` e `ROADMAP`, che si mantengono allineati. Se
+  modifichi un file inglese, segnala lo specchio così può recuperare.
 - **Le decisioni vanno negli ADR.** Una scelta di progetto significativa si registra in
   `architecture/decisions/` con il template esistente: *Contesto · Ipotesi · Esperimento ·
   Decisione · Conseguenze*. Un ADR può diventare `superseded` — è normale.

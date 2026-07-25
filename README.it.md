@@ -59,9 +59,13 @@ già corrotta.
 **La feature-eroe: le formule si verificano dall'*immagine* della pagina, non dal
 testo OCR.**
 
-Ogni strumento in questo campo si fida del layer di testo. Le formule sono proprio il
-punto in cui quel layer è meno affidabile, e gli errori di trascrizione sono invisibili
-a qualunque processo che veda solo testo. florilegium chiude questo punto cieco:
+Leggere una pagina come immagine non è una novità — Nougat, Mathpix, marker e MinerU
+lo fanno già, spesso molto bene. Quello che nessuno strumento di estrazione fa è
+**verificare**: ognuno produce una *singola* lettura, e una singola lettura, per
+quanto buona, non ha modo di sapere quando sbaglia. Le formule sono proprio il punto
+in cui gli errori silenziosi sono più probabili e più costosi, e un errore è
+invisibile a qualunque processo che possieda una sola lettura. florilegium chiude
+questo punto cieco:
 
 1. **Visualizza, non fidarti.** La pagina PDF rilevante viene resa come **immagine** ad
    alta risoluzione.
@@ -198,8 +202,8 @@ Rilasciamo **a livelli**, e ogni livello è completo in sé:
 | Milestone | Cosa aggiunge | Stato |
 |---|---|---|
 | **M1 — la Storia** | README, architettura, registri delle decisioni (ADR), un esempio completo | **in corso** |
-| **M2 — il Motore** | Orchestratore, batch e session management — eseguibile | pianificata |
-| **M3 — i Gate** | I prompt di funzione generalizzati e la configurazione operativa dei gate | pianificata |
+| **M1.5 — il Primo Ciclo** | Uno script breve che automatizza l'esempio 01 — la prima cosa che gira | pianificata |
+| **M2 — il Motore & i Gate** | Orchestratore, batch e session management + i prompt di funzione generalizzati e la configurazione operativa dei gate | pianificata |
 | **M4 — Benchmark & v1.0** | Singolo-prompt vs. catena, robustezza OCR, costo/token, con dati riproducibili + CI | pianificata |
 
 Perché il codice viene *dopo* la storia: qui il valore è il **metodo e le decisioni**,
@@ -226,6 +230,17 @@ fonte chiude la questione senza guardare nessuna delle due letture.
 ---
 
 ## FAQ
+
+**In cosa è diverso da Nougat, Mathpix, marker o MinerU?**
+Quegli strumenti risolvono l'*estrazione*: trasformare una pagina PDF — di solito
+passando dall'immagine — in testo o LaTeX, e alcuni lo fanno molto bene. florilegium
+non compete sull'estrazione; in linea di principio può appoggiarsi a ciascuno di
+loro. Quello che aggiunge è la **verifica avversariale**: una seconda lettura
+indipendente della formula dall'immagine della pagina, fatta da una funzione che non
+ha mai visto la prima lettura e a cui non viene mai detto cosa aspettarsi, seguita da
+un confronto incrociato e, in caso di disaccordo, dall'adjudication di un arbitro
+che dispone di un canale che nessuna delle due letture ha usato. Un estrattore ti consegna una
+risposta; florilegium ti dice se fidarti.
 
 **Perché più agenti invece di un singolo prompt grande?**
 Perché un singolo prompt ha una sola lettura della pagina. La verifica indipendente ha

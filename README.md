@@ -54,9 +54,12 @@ has no way to notice it was handed a corrupted equation in the first place.
 **The hero feature: formulas are verified from the *image* of the page, not from the
 OCR text.**
 
-Every tool in this space trusts the text layer. Formulas are precisely where that
-text layer is least trustworthy, and the failures are invisible to any process that
-only ever sees text. florilegium closes that blind spot:
+Reading a page as an image is not new — Nougat, Mathpix, marker and MinerU all do
+it, often very well. What no extraction tool does is **verify**: each produces a
+*single* reading, and a single reading, however good, has no way to know when it is
+wrong. Formulas are precisely where silent errors are most likely and most costly,
+and a failure is invisible to any process that only ever holds one reading.
+florilegium closes that blind spot:
 
 1. **Render, don't trust.** The relevant PDF page is rendered as a high-resolution
    **image**.
@@ -190,8 +193,8 @@ We release **in layers**, and each layer is complete in itself:
 | Milestone | What it adds | State |
 |---|---|---|
 | **M1 — the Story** | README, architecture, decision records (ADRs), one worked example | **in progress** |
-| **M2 — the Engine** | The orchestrator, batching and session management — runnable | planned |
-| **M3 — the Gates** | The generalized role prompts and the operational configuration of the gates | planned |
+| **M1.5 — the First Loop** | A short script that automates example 01 — the first thing that runs | planned |
+| **M2 — the Engine & the Gates** | The orchestrator, batching and session management + the generalized role prompts and the operational configuration of the gates | planned |
 | **M4 — Benchmarks & v1.0** | Single-prompt vs. chain, OCR-robustness, cost/token, with reproducible data + CI | planned |
 
 Why the code comes *after* the story: the value here is the **method and the
@@ -218,6 +221,16 @@ settles the question without looking at either reading.
 ---
 
 ## FAQ
+
+**How is this different from Nougat, Mathpix, marker, or MinerU?**
+Those tools solve *extraction*: turning a PDF page — usually via the image — into
+text or LaTeX, and some do it very well. florilegium does not compete on extraction;
+in principle it can sit on top of any of them. What it adds is **adversarial
+verification**: a second, independent reading of the formula from the page image, by
+a role that never saw the first reading and is never told what to expect, followed
+by a cross-check and, on disagreement, an adjudication through a channel neither
+reading used. An extractor hands you one answer; florilegium tells you whether to
+trust it.
 
 **Why multiple agents instead of one big prompt?**
 Because a single prompt has a single reading of the page. Independent verification

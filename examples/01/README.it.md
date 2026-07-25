@@ -143,8 +143,8 @@ che puoi usare e una nota che devi ricontrollare.
 - un tasso d'errore misurato. Questa è **una formula in un articolo**: una dimostrazione, non
   un benchmark. I benchmark arrivano con M4, e fino ad allora questo repository non cita
   numeri che non sia in grado di riprodurre.
-- la pipeline in funzione. Qui non c'è ancora il motore (M2) e non ci sono i prompt delle
-  funzioni (M3): questo esempio è volutamente eseguibile a mano, che è anche il modo onesto
+- la pipeline in funzione. Qui non ci sono ancora né il motore né i prompt delle
+  funzioni (entrambi M2): questo esempio è volutamente eseguibile a mano, che è anche il modo onesto
   di verificare che il metodo non dipenda da un modello particolare.
 
 ---

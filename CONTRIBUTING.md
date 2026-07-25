@@ -21,8 +21,9 @@ benchmarks arrive in later milestones.
 ## Conventions
 
 - **Bilingual docs.** English is the canonical version; the Italian mirror carries the
-  `.it.md` suffix (e.g. `README.md` ↔ `README.it.md`). If you change one, note the other
-  so they can be kept in sync.
+  `.it.md` suffix (e.g. `README.md` ↔ `README.it.md`). The mirror is **best-effort**: it
+  may lag behind, except for `README` and `ROADMAP`, which are kept in sync. If you
+  change an English file, note the mirror so it can catch up.
 - **Decisions go in ADRs.** A significant design choice is recorded in
   `architecture/decisions/` using the existing template: *Context · Hypothesis ·
   Experiment · Decision · Consequences*. An ADR can be `superseded` — that is normal.

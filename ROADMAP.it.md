@@ -22,27 +22,30 @@ Un repository che **spiega** il progetto, ancora senza codice eseguibile.
 l'*originalità* e *perché questo autore l'ha progettato così*. L'esempio è riproducibile
 a mano.
 
-## M2 — il Motore  ·  *pianificata*
+## M1.5 — il Primo Ciclo  ·  *pianificata*
 
-Rendere il progetto eseguibile nel suo nucleo utile-ma-difficile-da-copiare.
+La cosa più piccola che gira: uno script breve che automatizza l'esempio 01 — rende la
+pagina come immagine, ri-trascrive le formule dall'immagine, confronta le due letture,
+stampa le differenze. Niente orchestratore, niente gate, niente configurazione.
+
+**DoD:** un utente esegue lo script sull'esempio 01 e il ciclo riproduce, da solo, le
+discrepanze che l'esempio documenta a mano.
+
+## M2 — il Motore & i Gate  ·  *pianificata*
+
+Rendere il progetto eseguibile nel suo nucleo utile-ma-difficile-da-copiare. *(Le
+vecchie M2 e M3, fuse: un orchestratore senza i prompt di funzione è impalcatura, non
+una pipeline — escono insieme. M4 mantiene il suo numero.)*
 
 - L'orchestratore, i batch e la gestione delle sessioni.
-- `config/config.example.yaml`, documentazione di installazione e primi passi.
-
-**DoD:** un utente Linux esegue la pipeline su un PDF d'esempio seguendo la guida ai primi
-passi, senza altro aiuto.
-
-## M3 — i Gate  ·  *pianificata*
-
-La parte metodologicamente originale, in forma eseguibile. Il *metodo* è già pubblicato a
-M1 (vedi `architecture/` e gli ADR); ciò che M3 aggiunge è la macchina che lo esegue.
-
 - I prompt di funzione generalizzati (direttore / bibliotecario / operatore pre-gate /
   ri-trascrittore / verificatore).
 - La configurazione operativa dei gate: gli innesti di escalation, i canali richiesti per
   tipo di nota, la politica di quarantena.
+- `config/config.example.yaml`, documentazione di installazione e primi passi.
 
-**DoD:** i gate girano sull'esempio e producono un rapporto di qualità riproducibile.
+**DoD:** un utente Linux esegue la pipeline su un PDF d'esempio seguendo la guida ai
+primi passi, e i gate producono un rapporto di qualità riproducibile.
 
 ## M4 — Benchmark & v1.0  ·  *pianificata*
 

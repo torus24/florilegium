@@ -22,27 +22,30 @@ A repository that **explains** the project, without runnable code yet.
 *problem*, the *originality*, and *why this author designed it*. The example is
 reproducible by hand.
 
-## M2 — The Engine  ·  *planned*
+## M1.5 — The First Loop  ·  *planned*
 
-Make the project runnable in its useful-but-hard-to-copy core.
+The smallest thing that runs: a short script that automates example 01 — render the
+page as an image, re-transcribe the formulas from it, compare the two readings, print
+the differences. No orchestrator, no gates, no configuration.
+
+**DoD:** a user runs the script on example 01 and the loop reproduces, on its own, the
+discrepancies the example documents by hand.
+
+## M2 — The Engine & the Gates  ·  *planned*
+
+Make the project runnable in its useful-but-hard-to-copy core. *(Former M2 and M3,
+merged: an orchestrator without the role prompts is scaffolding, not a pipeline — they
+ship together. M4 keeps its number.)*
 
 - The orchestrator, batching and session management.
-- `config/config.example.yaml`, installation and getting-started docs.
-
-**DoD:** a Linux user runs the pipeline on an example PDF by following the getting-started
-guide, without further help.
-
-## M3 — The Gates  ·  *planned*
-
-The methodologically original part, in runnable form. The *method* is already published at
-M1 (see `architecture/` and the ADRs); what M3 adds is the machinery that executes it.
-
 - The generalized role prompts (director / librarian / pre-gate operator /
   re-transcriber / verifier).
 - The operational configuration of the gates: escalation triggers, the channels required
   per note type, the quarantine policy.
+- `config/config.example.yaml`, installation and getting-started docs.
 
-**DoD:** the gates run on the example and produce a reproducible quality report.
+**DoD:** a Linux user runs the pipeline on an example PDF by following the
+getting-started guide, and the gates produce a reproducible quality report.
 
 ## M4 — Benchmarks & v1.0  ·  *planned*
 

@@ -139,7 +139,7 @@ you have to re-check.
 - a measured error rate. This is **one formula in one paper**: a demonstration, not a
   benchmark. The benchmarks arrive with M4, and until then this repository quotes no numbers
   it cannot reproduce.
-- the pipeline running. There is no engine here yet (M2), and no role prompts (M3): this
+- the pipeline running. There is no engine and no role prompts here yet (both M2): this
   example is deliberately doable by hand, which is also the honest way to check that the
   method does not depend on any particular model.
 
