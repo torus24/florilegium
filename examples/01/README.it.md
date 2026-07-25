@@ -178,6 +178,46 @@ che puoi usare e una nota che devi ricontrollare.
 
 ---
 
+## La stessa cosa, automatizzata — il Primo Ciclo (M1.5)
+
+Tutto quello che c'è qui sopra si fa a mano, ed è giusto che resti così: è quello che rende
+l'affermazione verificabile senza doversi fidare di noi.
+[`scripts/first_loop.py`](../../scripts/first_loop.py) sono gli stessi quattro passi, con la
+seconda lettura fatta dal modello invece che da te.
+
+```bash
+python3 scripts/first_loop.py \
+  --pdf paper.pdf --page 2 \
+  --target "the first displayed numbered equation, Eq. (1), in section 2.1" \
+  --grep 'ðT; εÞ' --context 1
+```
+
+Rende la pagina a 400 dpi, legge il layer di testo, chiede a un modello multimodale di
+trascrivere il bersaglio **dalla sola immagine**, e stampa le differenze fra le due letture.
+Su questo articolo riporta quello che hai trovato a mano: due segni meno presenti
+nell'immagine e assenti dal layer di testo, e una `ν` greca che il layer di testo ha reso
+come una `n` latina.
+
+**Due canali verso il modello.** `--backend api` (predefinito) usa l'API Anthropic e richiede
+`pip install anthropic` più una `ANTHROPIC_API_KEY`. `--backend cli` pilota invece
+un'installazione locale di [Claude Code](https://claude.com/claude-code) — niente chiave API,
+ma è una sessione agentica invece di una sola chiamata, quindi meno deterministica.
+
+**Cosa NON fa.** Elenca le differenze e si ferma lì. Non decide quale lettura sia quella
+giusta, e non esegue il terzo canale — sono entrambi dell'arbitro
+([quality-gates](../../architecture/quality-gates.it.md)), che è M2. Al prompt che invia non
+viene mai mostrata la lettura del layer di testo e non viene mai detto cosa aspettarsi: è la
+regola che l'[ADR-0006](../../architecture/decisions/0006-reader-must-not-know-the-expected-answer.it.md)
+esiste per far rispettare.
+
+**Un limite che vale la pena conoscere.** La resa è a 400 dpi, ma una pagina intera a quella
+risoluzione è più grande di quanto il modello accetti e viene ridimensionata all'ingresso —
+per questa equazione è bastato lo stesso, ma dove un glifo è davvero al limite conviene
+ritagliare il bersaglio: `--crop X,Y,LARGHEZZA,ALTEZZA`, in pixel della pagina resa. Un
+ritaglio conserva la risoluzione vera.
+
+---
+
 ## Attribuzione
 
 L'equazione e le definizioni dei simboli discusse qui sopra vengono da Zhang, X. et al.

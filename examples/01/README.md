@@ -174,6 +174,43 @@ you have to re-check.
 
 ---
 
+## The same thing, automated — the First Loop (M1.5)
+
+Everything above is done by hand, and it should stay that way: it is what makes the claim
+checkable without trusting us. [`scripts/first_loop.py`](../../scripts/first_loop.py) is the
+same four steps with the model doing the second reading instead of you.
+
+```bash
+python3 scripts/first_loop.py \
+  --pdf paper.pdf --page 2 \
+  --target "the first displayed numbered equation, Eq. (1), in section 2.1" \
+  --grep 'ðT; εÞ' --context 1
+```
+
+It renders the page at 400 dpi, reads the text layer, asks a multimodal model to transcribe
+the target **from the image alone**, and prints the differences between the two readings. On
+this paper it reports what you found by hand: two minus signs present in the image and absent
+from the text layer, and a Greek `ν` the text layer turned into a Latin `n`.
+
+**Two backends.** `--backend api` (the default) uses the Anthropic API and needs
+`pip install anthropic` plus an `ANTHROPIC_API_KEY`. `--backend cli` drives a local
+[Claude Code](https://claude.com/claude-code) install instead — no API key, but an agentic
+session rather than one call, so it is less deterministic.
+
+**What it does not do.** It lists differences and stops. It does not decide which reading is
+right, and it does not run the third channel — both belong to the adjudicator
+([quality-gates](../../architecture/quality-gates.md)), which is M2. The prompt it sends is
+never shown the text-layer reading and is never told what to expect, which is the rule
+[ADR-0006](../../architecture/decisions/0006-reader-must-not-know-the-expected-answer.md)
+exists to enforce.
+
+**A limit worth knowing.** The render is 400 dpi, but a full page at that resolution is
+larger than the model accepts and gets downscaled on the way in — for this equation that was
+enough, but where a glyph is genuinely marginal, crop the target instead:
+`--crop X,Y,WIDTH,HEIGHT`, in pixels of the rendered page. A crop keeps the real resolution.
+
+---
+
 ## Attribution
 
 The equation and the symbol definitions discussed above are from Zhang, X. et al. (2024),

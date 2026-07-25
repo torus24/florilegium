@@ -35,3 +35,6 @@ venv/
 #     Cargo.lock), which MUST be tracked for reproducibility. When the engine
 #     starts writing runtime locks, ignore them by their specific path.
 *.tmp
+
+# --- First Loop scratch renders (scripts/first_loop.py) ---
+.florilegium-run-*/
