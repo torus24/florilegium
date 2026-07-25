@@ -1,0 +1,34 @@
+# florilegium — .gitignore
+
+# --- Source PDFs are copyright: NO source PDF in the repo, examples included.
+#     Examples point at a DOI / open-access URL and are reproduced locally. ---
+*.pdf
+
+# --- Private planning docs (kept local, never published) ---
+GUIDA_PUBBLICAZIONE.md
+PROJECT_INVENTORY.md
+CLAUDE.md
+HANDOFF.md
+
+# --- OS / editor junk ---
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# --- Python runtime junk ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- Local env / secrets ---
+.env
+.env.*
+*.local
+
+# --- Pipeline runtime locks / temp ---
+*.lock
+*.tmp
