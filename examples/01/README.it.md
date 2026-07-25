@@ -180,10 +180,16 @@ che puoi usare e una nota che devi ricontrollare.
 
 ## La stessa cosa, automatizzata — il Primo Ciclo (M1.5)
 
+**Cos'è, esattamente.** [`scripts/first_loop.py`](../../scripts/first_loop.py) è una
+dimostrazione minima di **un solo gate**, ricostruita come programma a sé perché chiunque
+possa eseguirla. **Non** è la catena che ha prodotto i numeri dei registri delle decisioni:
+quella gira come sessioni di agenti dentro Claude Code, e pubblicarla — le schede delle
+funzioni, le skill, gli hook — è quello che sarà **M2**. Va letto come un dimostratore, non
+come il motore.
+
 Tutto quello che c'è qui sopra si fa a mano, ed è giusto che resti così: è quello che rende
-l'affermazione verificabile senza doversi fidare di noi.
-[`scripts/first_loop.py`](../../scripts/first_loop.py) sono gli stessi quattro passi, con la
-seconda lettura fatta dal modello invece che da te.
+l'affermazione verificabile senza doversi fidare di noi. Lo script sono gli stessi quattro
+passi, con la seconda lettura fatta dal modello invece che da te.
 
 ```bash
 python3 scripts/first_loop.py \
@@ -198,10 +204,14 @@ Su questo articolo riporta quello che hai trovato a mano: due segni meno present
 nell'immagine e assenti dal layer di testo, e una `ν` greca che il layer di testo ha reso
 come una `n` latina.
 
-**Due canali verso il modello.** `--backend api` (predefinito) usa l'API Anthropic e richiede
-`pip install anthropic` più una `ANTHROPIC_API_KEY`. `--backend cli` pilota invece
-un'installazione locale di [Claude Code](https://claude.com/claude-code) — niente chiave API,
-ma è una sessione agentica invece di una sola chiamata, quindi meno deterministica.
+**Due canali verso il modello, e il predefinito è una scelta.** Di default pilota
+un'installazione locale di [Claude Code](https://claude.com/claude-code): **nessuna chiave
+API, niente da pagare** oltre a una sottoscrizione, ed è l'implementazione di riferimento che
+questo repository dichiara. È una sessione agentica invece di una sola chiamata, quindi meno
+deterministica — è il compromesso. `--backend api` manda invece una singola chiamata all'API,
+che richiede `pip install anthropic` e una `ANTHROPIC_API_KEY` **a pagamento**: sta lì per
+mostrare che il metodo non è legato a un solo modo di raggiungere un modello, non perché
+serva.
 
 **Cosa NON fa.** Elenca le differenze e si ferma lì. Non decide quale lettura sia quella
 giusta, e non esegue il terzo canale — sono entrambi dell'arbitro

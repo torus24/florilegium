@@ -176,9 +176,15 @@ you have to re-check.
 
 ## The same thing, automated — the First Loop (M1.5)
 
+**What this is, precisely.** [`scripts/first_loop.py`](../../scripts/first_loop.py) is a
+minimal demonstration of **one gate**, rebuilt as a standalone program so that anyone can run
+it. It is **not** the chain that produced the numbers in the decision records: that chain runs
+as agent sessions inside Claude Code, and publishing it — the role definitions, the skills,
+the hooks — is what **M2** is for. Read this as a demonstrator, not as the engine.
+
 Everything above is done by hand, and it should stay that way: it is what makes the claim
-checkable without trusting us. [`scripts/first_loop.py`](../../scripts/first_loop.py) is the
-same four steps with the model doing the second reading instead of you.
+checkable without trusting us. The script is the same four steps with the model doing the
+second reading instead of you.
 
 ```bash
 python3 scripts/first_loop.py \
@@ -192,10 +198,13 @@ the target **from the image alone**, and prints the differences between the two 
 this paper it reports what you found by hand: two minus signs present in the image and absent
 from the text layer, and a Greek `ν` the text layer turned into a Latin `n`.
 
-**Two backends.** `--backend api` (the default) uses the Anthropic API and needs
-`pip install anthropic` plus an `ANTHROPIC_API_KEY`. `--backend cli` drives a local
-[Claude Code](https://claude.com/claude-code) install instead — no API key, but an agentic
-session rather than one call, so it is less deterministic.
+**Two backends, and the default is deliberate.** By default it drives a local
+[Claude Code](https://claude.com/claude-code) install: **no API key, nothing to pay** beyond a
+subscription, and it is the reference implementation this repository names. It is an agentic
+session rather than a single call, so it is less deterministic — that is the trade.
+`--backend api` sends one direct API call instead, which needs `pip install anthropic` and a
+**paid** `ANTHROPIC_API_KEY`; it is there to show the method is not tied to one way of
+reaching a model, not because you need it.
 
 **What it does not do.** It lists differences and stops. It does not decide which reading is
 right, and it does not run the third channel — both belong to the adjudicator

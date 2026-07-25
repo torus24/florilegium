@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 """florilegium — the First Loop (M1.5).
 
-The smallest thing that runs. It does four things, in this order:
+A minimal demonstration of ONE gate, rebuilt so that anyone can run it.
+
+Read that sentence literally. This script is not the chain that produced the
+numbers in architecture/decisions/ — that chain runs as agent sessions inside
+Claude Code, and it is what M2 publishes. This is a small, separate program
+that reproduces, end to end, the discrepancy examples/01 walks through by
+hand. It is a demonstrator, not the engine.
+
+It does four things, in this order:
 
   1. renders one PDF page as an image at >= 400 dpi;
   2. reads the same page from the PDF text layer;
@@ -99,11 +107,18 @@ def read_text_layer(pdf: str, page: int, grep: str | None, context: int) -> str:
 
 
 def transcribe_api(png: str, prompt: str, model: str) -> str:
+    """Alternative backend: one direct API call.
+
+    Not the reference implementation, and not free: it needs an API key and
+    bills per token. It exists to show that the method is not tied to one way
+    of reaching a model — the same gate works through a plain API call.
+    """
     try:
         import anthropic
     except ImportError:
-        sys.exit("error: the api backend needs the SDK. Install it with: pip install anthropic\n"
-                 "       (or run with --backend cli to use a local Claude Code install)")
+        sys.exit("error: the api backend needs the SDK and a paid API key.\n"
+                 "       pip install anthropic, or drop the flag to use the default\n"
+                 "       cli backend (a local Claude Code install, no key needed).")
     with open(png, "rb") as f:
         data = base64.standard_b64encode(f.read()).decode()
     client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from the environment
@@ -121,10 +136,12 @@ def transcribe_api(png: str, prompt: str, model: str) -> str:
 
 
 def transcribe_cli(png: str, prompt: str) -> str:
-    """Fallback backend: drive a local Claude Code install instead of the API.
+    """Default backend: a local Claude Code install.
 
-    Useful when you have a Claude subscription but no API key. It is an agentic
-    session rather than a single API call, so it is less deterministic.
+    This is the reference implementation the README names, and it is how the
+    origin chain invokes a model — a session, not an API call. It needs no API
+    key and costs nothing beyond a subscription you already have. Being an
+    agentic session, it is less deterministic than a single call.
     """
     if shutil.which("claude") is None:
         sys.exit("error: the cli backend needs Claude Code on PATH (https://claude.com/claude-code)")
@@ -182,7 +199,9 @@ def main() -> None:
     p.add_argument("--grep", help="regex narrowing the text layer to the target — without it the two "
                                   "readings are not comparable (a whole page vs one formula)")
     p.add_argument("--context", type=int, default=4, help="lines to keep after each --grep match (default: 4)")
-    p.add_argument("--backend", choices=["api", "cli"], default="api")
+    p.add_argument("--backend", choices=["cli", "api"], default="cli",
+                   help="cli: a local Claude Code install, no API key (default, and the "
+                        "reference implementation). api: one direct API call — needs a paid key")
     p.add_argument("--model", default="claude-opus-5", help="api backend only (default: claude-opus-5)")
     p.add_argument("--out", help="where to keep the render (default: a scratch directory under the "
                                  "current one — the cli backend cannot read outside it)")
