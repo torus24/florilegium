@@ -215,19 +215,24 @@ PDF → discovery → channel triage → extraction → mechanical pre-gate
   on a different model or provider — Claude is today’s implementation, not a
   requirement.
 
-We release **in layers**, and each layer is complete in itself:
+This repository ships **in layers**, and each layer is complete in itself:
 
 <a name="roadmap"></a>
 
 | Milestone | What it adds | State |
 |---|---|---|
 | **M1 — the Story** | README, architecture, decision records (ADRs), one worked example, and a short script that automates it | **shipped — this repository** |
-| **M2 — the Engine & the Gates** | The orchestrator, batching and session management + the generalized role prompts and the operational configuration of the gates | planned |
-| **M4 — Benchmarks & v1.0** | Single-prompt vs. chain, OCR-robustness, cost/token, with reproducible data + CI | planned |
+| **M2 — the Chain** | The real role cards and gate protocol, generalized, plus the small deterministic core that enforces them | when it has been cleaned up |
+| **M4 — the Evidence** | Aggregate measurements from the author's real corpus, with the sources unpublishable; a reproducible fixture if openly licensed material allows one | no date |
 
-There is no M3: the former M2 and M3 were **merged** — an orchestrator without the role
-prompts is scaffolding, not a pipeline, so they ship together. M4 keeps its number so that
-the decision records that cite it stay valid. Full detail in [ROADMAP.md](ROADMAP.md).
+There is no M3: the former M2 and M3 were **merged** — role cards without the gate protocol
+are scaffolding, not a pipeline, so they ship together. M4 keeps its number so that the
+decision records that cite it stay valid. Full detail in [ROADMAP.md](ROADMAP.md).
+
+**These are states, not commitments.** florilegium documents a method its author actually
+uses in another project; it is not developed as a product. What ships is what was already
+written in order to work — so there is no promised v1.0, no CI, and no package installable
+everywhere. The roadmap says so [in as many words](ROADMAP.md).
 
 Why the code comes *after* the story: the value here is the **method and the
 decisions**, not a folder of scripts. Publishing the reasoning first is deliberate.
@@ -242,9 +247,11 @@ substitute for M2 — it is the part of florilegium that does not need code.
 
 ## Installation & example
 
-There is nothing to install yet: the runnable engine arrives with **M2**. What exists
-today is the **worked example**, and it is deliberately doable **by hand** — two
-`poppler-utils` commands, no API key, no model, no account.
+There is nothing to install yet: the chain arrives with **M2**, and it will require the
+same environment it runs in today — an agentic host with isolated sub-agent context,
+`poppler-utils`, and a multimodal model. What exists today is the **worked example**, and
+it is deliberately doable **by hand** — two `poppler-utils` commands, no API key, no model,
+no account.
 
 → **[examples/01 — a formula the text layer silently broke](examples/01/README.md)**
 
@@ -343,9 +350,13 @@ Stated up front, because honesty about limits is part of the method:
   not portable to a text-only provider; and the reference orchestration assumes **sessions
   with a limited context**, since the stopping rules are written as a percentage of context
   occupied.
-- **The public benchmarks arrive with M4.** Until then this README describes a
-  **method** and deliberately avoids quoting numbers that cannot yet be reproduced from
-  this repository. That is honesty, not weakness.
+- **The evidence arrives with M4, and it will be directional.** The sources the chain
+  actually works on are copyrighted and will never be committed here, so what can be
+  published are **aggregate measurements with the methodology stated and the sources
+  withheld** — not something a third party can re-run. A reproducible fixture is possible
+  only for the part of the material that is openly licensed. Until then this README
+  describes a **method** and deliberately avoids quoting numbers that cannot yet be
+  reproduced from this repository. That is honesty, not weakness.
 
 ---
 

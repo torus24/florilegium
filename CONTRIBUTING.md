@@ -30,7 +30,8 @@ benchmarks arrive in later milestones.
   `architecture/decisions/` using the existing template: *Context · Hypothesis ·
   Experiment · Decision · Consequences*. An ADR can be `superseded` — that is normal.
 - **Claims must be honest.** Numbers are labelled as directional evidence or as
-  benchmarks; the two are not the same. Controlled benchmarks land in M4.
+  benchmarks; the two are not the same. Most of what M4 can publish is directional by
+  construction: the sources are copyrighted and stay out of this repository.
 - **The pipeline diagram lives in four files.** The same Mermaid flowchart is duplicated in
   `README.md`, `README.it.md`, `architecture/overview.md` and `architecture/overview.it.md`
   — GitHub has no include mechanism, so the duplication is forced. **Change all four, or

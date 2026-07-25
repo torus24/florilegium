@@ -31,8 +31,9 @@ benchmark arrivano nelle milestone successive.
   `architecture/decisions/` con il template esistente: *Contesto · Ipotesi · Esperimento ·
   Decisione · Conseguenze*. Un ADR può diventare `superseded` — è normale.
 - **Le affermazioni devono essere oneste.** I numeri sono etichettati come evidenza
-  direzionale oppure come benchmark; le due cose non coincidono. I benchmark controllati
-  arrivano con M4.
+  direzionale oppure come benchmark; le due cose non coincidono. Quasi tutto ciò che M4 può
+  pubblicare è direzionale per costruzione: le fonti sono protette da copyright e restano
+  fuori da questo repository.
 - **Il diagramma della pipeline vive in quattro file.** Lo stesso flowchart Mermaid è
   duplicato in `README.md`, `README.it.md`, `architecture/overview.md` e
   `architecture/overview.it.md` — GitHub non ha un meccanismo di include, quindi la

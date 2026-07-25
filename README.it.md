@@ -225,20 +225,25 @@ PDF → discovery → triage dei canali → estrazione → pre-gate meccanico
   poter essere ricostruiti su un altro modello o fornitore — Claude è l'implementazione
   di oggi, non un requisito.
 
-Rilasciamo **a livelli**, e ogni livello è completo in sé:
+Questo repository esce **a livelli**, e ogni livello è completo in sé:
 
 <a name="roadmap"></a>
 
 | Milestone | Cosa aggiunge | Stato |
 |---|---|---|
 | **M1 — la Storia** | README, architettura, registri delle decisioni (ADR), un esempio completo e uno script breve che lo automatizza | **rilasciata — questo repository** |
-| **M2 — il Motore & i Gate** | Orchestratore, batch e session management + i prompt di funzione generalizzati e la configurazione operativa dei gate | pianificata |
-| **M4 — Benchmark & v1.0** | Singolo-prompt vs. catena, robustezza OCR, costo/token, con dati riproducibili + CI | pianificata |
+| **M2 — la Catena** | Le schede di funzione vere e il protocollo dei gate, generalizzati, più il piccolo nucleo deterministico che li impone | quando sarà ripulita |
+| **M4 — l'Evidenza** | Misure aggregate dal corpus reale dell'autore, con le fonti non pubblicabili; un fixture riproducibile se il materiale a licenza aperta lo consente | senza data |
 
-La M3 non c'è: le vecchie M2 e M3 sono state **fuse** — un orchestratore senza i prompt
-di funzione è un'impalcatura, non una pipeline, quindi escono insieme. La M4 mantiene il
-suo numero, così i registri delle decisioni che la citano restano validi. Dettaglio
-completo in [ROADMAP.it.md](ROADMAP.it.md).
+La M3 non c'è: le vecchie M2 e M3 sono state **fuse** — le schede di funzione senza il
+protocollo dei gate sono un'impalcatura, non una pipeline, quindi escono insieme. La M4
+mantiene il suo numero, così i registri delle decisioni che la citano restano validi.
+Dettaglio completo in [ROADMAP.it.md](ROADMAP.it.md).
+
+**Sono stati, non impegni.** florilegium documenta un metodo che il suo autore usa davvero
+in un altro progetto; non è sviluppato come prodotto. Esce ciò che è già stato scritto per
+lavorare — quindi nessuna v1.0 promessa, nessuna integrazione continua, nessun pacchetto
+installabile ovunque. La roadmap [lo dice per esteso](ROADMAP.it.md).
 
 Perché il codice viene *dopo* la storia: qui il valore è il **metodo e le decisioni**,
 non una cartella di script. Pubblicare prima il ragionamento è una scelta deliberata.
@@ -253,9 +258,11 @@ parte di florilegium che non ha bisogno di codice.
 
 ## Installazione & esempio
 
-Non c'è ancora niente da installare: il motore eseguibile arriva con **M2**. Quello che
-esiste oggi è l'**esempio completo**, ed è deliberatamente riproducibile **a mano** — due
-comandi di `poppler-utils`, nessuna chiave API, nessun modello, nessun account.
+Non c'è ancora niente da installare: la catena arriva con **M2**, e richiederà lo stesso
+ambiente in cui gira oggi — un host agentico con contesto isolato per sub-agente,
+`poppler-utils` e un modello multimodale. Quello che esiste oggi è l'**esempio completo**,
+ed è deliberatamente riproducibile **a mano** — due comandi di `poppler-utils`, nessuna
+chiave API, nessun modello, nessun account.
 
 → **[examples/01 — una formula che il layer di testo ha rotto in silenzio](examples/01/README.it.md)**
 
@@ -357,9 +364,13 @@ Dichiarati in cima, perché l'onestà sui limiti è parte del metodo:
   metodo non è portabile su un fornitore solo-testo; e l'orchestrazione di riferimento
   assume **sessioni con contesto limitato**, dato che le regole di arresto sono scritte in
   percentuale di contesto occupato.
-- **I benchmark pubblici arrivano con M4.** Fino ad allora questo README descrive un
-  **metodo** ed evita deliberatamente di citare numeri non ancora riproducibili da
-  questo repository. È onestà, non debolezza.
+- **L'evidenza arriva con M4, e sarà direzionale.** Le fonti su cui la catena lavora
+  davvero sono protette da copyright e non entreranno mai qui: quello che si può pubblicare
+  sono **misure aggregate con la metodologia dichiarata e le fonti trattenute** — non
+  qualcosa che un terzo possa rieseguire. Un fixture riproducibile è possibile solo per la
+  parte di materiale a licenza aperta. Fino ad allora questo README descrive un **metodo**
+  ed evita deliberatamente di citare numeri non ancora riproducibili da questo repository.
+  È onestà, non debolezza.
 
 ---
 

@@ -7,7 +7,7 @@ All notable changes to this project are documented here. The format follows
 This file is kept in English only — see the bilingual policy in
 [CONTRIBUTING](CONTRIBUTING.md).
 
-## [0.1.0] — 2026-07-25 — M1, the Story
+## [0.1.0] — 2026-07-26 — M1, the Story
 
 First public release. The repository publishes the **method**, not yet the engine.
 
@@ -29,3 +29,7 @@ First public release. The repository publishes the **method**, not yet the engin
   API key); an API backend is available as a declared alternative.
 - `LICENSE` (Apache-2.0), `LICENSES/CC-BY-4.0.txt`, `CITATION.cff`, `ROADMAP` and
   `CONTRIBUTING` (both EN + IT).
+- The `ROADMAP` describes **states, not commitments**: florilegium documents a method its
+  author uses in another project, so what ships is what was already written in order to
+  work. No v1.0 is planned, and the roadmap says in as many words what it does not
+  promise.

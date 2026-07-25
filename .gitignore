@@ -9,6 +9,12 @@ GUIDA_PUBBLICAZIONE.md
 PROJECT_INVENTORY.md
 CLAUDE.md
 HANDOFF.md
+MAPPATURA_NOMI_PRIVATA.md
+
+# --- Private working material: NEVER publishable ---
+#     _release-review/ holds the pre-release review reports, which quote it.
+#     Both are ignored so that no `git add -A` can ever sweep them into a public repo.
+_release-review/
 
 # --- OS / editor junk ---
 .DS_Store
