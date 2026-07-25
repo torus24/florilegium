@@ -35,8 +35,8 @@ a **high rate of unfounded accusations** (see
 One case shows it starkly: the verification **fabricated** a typo, accusing an equation of
 an error that used **symbols never printed** in that formula — a verdict produced by the
 *pressure to decide*, not by the evidence. On ambiguous cases the mandatory verdict
-skewed systematically toward the **stronger** decision (accuse the source) rather than
-toward “I don’t know, more is needed.”
+skewed, **in every case observed**, toward the **stronger** decision (accuse the source)
+rather than toward “I don’t know, more is needed.”
 
 ## Decision
 

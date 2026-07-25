@@ -48,9 +48,11 @@ the glyph printed by the source differed from the one transcribed in the note, a
 non-existent difference the note had founded yet another "source typo" line.
 
 The final tally for that note: it carried **four** “source typo” lines, and the **real**
-source typos were **two**. These are two different tallies and should be read as such: the
-five accusations re-checked one by one sit on different papers, while these four all sit on
-the same note — and the fourth false alarm of that tally is the second of this one.
+source typos were **two**. These are two different tallies and **they do not add up**: the
+five accusations re-checked one by one are spread over three different papers — two of
+which carried more than one — while these four all sit on the same note, and the two
+tallies overlap. Read them as two views of the same material, not as two independent
+counts.
 
 This is the point that changed the method, and it matters more than the number. If the
 fourth case surfaced **by accident**, while we were looking at something else, then the

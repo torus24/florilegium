@@ -35,7 +35,7 @@ contese ha prodotto una quota **alta di accuse infondate** (vedi
 allarmi). Un caso lo mostra in modo netto: la verifica ha **fabbricato** un refuso,
 accusando un'equazione di un errore che usava **simboli mai stampati** in quella formula
 — un verdetto prodotto dalla *pressione a decidere*, non dall'evidenza. Sui casi ambigui
-il verdetto obbligatorio tendeva sistematicamente verso la decisione **più forte**
+il verdetto obbligatorio tendeva, **in tutti i casi osservati**, verso la decisione **più forte**
 (accusare la fonte) invece che verso il "non so, serve altro".
 
 ## Decisione

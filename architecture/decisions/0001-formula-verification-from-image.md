@@ -33,9 +33,10 @@ triggered **“on demand”** whenever someone had an explicit doubt.
 > *directional* evidence that motivated the decision, not as a controlled benchmark
 > (that is M4).
 
-On a batch of **5 formulas** that the text check had flagged as a **“source typo”** (i.e.
-the source is wrong, use the corrected version), we rendered the **contested line only**
-at **high resolution (≥400 dpi)** and re-read the formula **from the image**,
+We went back over the **5 formulas** that the text check had flagged as a **“source typo”**
+(i.e. the source is wrong, use the corrected version) — they had accumulated across
+different papers and different runs, not in a single batch — and re-rendered each one: the
+**contested line only**, at **high resolution (≥400 dpi)**, re-read **from the image**,
 independently. Result:
 
 - **4 out of 5 were false alarms:** the source was correct, the error was in the

@@ -34,10 +34,11 @@ dubbi, da attivare **"a richiesta"**, quando qualcuno avesse un dubbio esplicito
 > evidenza *direzionale* che ha motivato la decisione, non come benchmark controllato
 > (quello è M4).
 
-Su un lotto di **5 formule** che il controllo testuale aveva marcato come **"refuso di
-fonte"** (cioè: la fonte sbaglia, uso la versione corretta), abbiamo reso il **solo rigo
-conteso** ad **alta risoluzione (≥400 dpi)** e ri-letto la formula **dall'immagine**, in
-modo indipendente. Esito:
+Siamo tornati sulle **5 formule** che il controllo testuale aveva marcato come **"refuso di
+fonte"** (cioè: la fonte sbaglia, uso la versione corretta) — si erano accumulate su
+articoli e corse diverse, non in un lotto unico — e le abbiamo rese una per una: il **solo
+rigo conteso**, ad **alta risoluzione (≥400 dpi)**, ri-letto **dall'immagine** in modo
+indipendente. Esito:
 
 - **4 casi su 5 erano falsi allarmi:** la fonte era corretta, l'errore stava
   nell'OCR/resa a bassa risoluzione. La "correzione" sarebbe stata un peggioramento.

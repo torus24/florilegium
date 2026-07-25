@@ -16,6 +16,10 @@ These are written after the fact and kept honest, including where the method was
 first and right later. The data comes from use of the pipeline that preceded this project,
 reported in generic form.
 
+The episodes come from roughly **35 armed runs** over some **eighteen documents**: enough
+to say that these are recurring failure modes and not one-off accidents, not enough to
+call any of it a measurement. The exact totals arrive with the **M4** benchmarks.
+
 ---
 
 *See also: [architecture/overview](../architecture/overview.md) for how these rules ended up

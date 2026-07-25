@@ -43,7 +43,7 @@ every time.
 
 A particularly rich paper — many formulas, many notes — **exhausts a run on its own**, even
 when the paper count is still wide open. In fact, runs configured for five papers closed
-**on the first** more than once, on density alone.
+**on the first** three times in the runs recorded here, on density alone.
 
 **What density is, operationally.** It is the **number of notes extraction produces from a
 single document**, counted once the document is finished. A document is *dense* when that

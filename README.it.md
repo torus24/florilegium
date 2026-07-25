@@ -24,7 +24,8 @@ knowledge base pulita e ricercabile sembra un problema risolto. Non lo è.
 
 - **L'OCR mente, e mente peggio proprio dove conta.** Il corpo del testo sopravvive
   abbastanza bene. **Le formule no** — e queste sono le corruzioni che un layer di
-  testo nasconde meglio:
+  testo nasconde meglio (esempi illustrativi della classe di guasto; gli episodi
+  misurati sono nel [diario](journal/README.it.md)):
     - un **esponente** letto male: la pendenza di una curva di fatica S–N letta `Δσ³`
       invece di `Δσ⁵`, e la vita prevista sbaglia di ordini di grandezza;
     - un **pedice** scambiato: una resistenza caratteristica `f_ck` letta come il
@@ -302,6 +303,17 @@ Dichiarati in cima, perché l'onestà sui limiti è parte del metodo:
   sotto gli occhi di un umano. Non sceglie mai di nascosto un vincitore, perché un
   disaccordo mostrato è sicuro e una “correzione” sbagliata nascosta no. È una scelta
   deliberata, non un difetto.
+- **L'indipendenza è informativa, non statistica.** Due letture indipendenti non
+  condividono stato né risposta attesa, ma possono condividere **modi di guasto**: sono
+  affidate a modelli della stessa famiglia, e davanti a un glifo ambiguo l'errore fra due
+  letture può risultare **correlato** — è successo, in due documenti su due. È una delle
+  ragioni per cui il gate non si ferma a due canali: il terzo non legge affatto, e dove la
+  fonte pubblica un numero che la formula deve riprodurre, o il conto chiude o non chiude.
+- **L'evidenza pubblicata viene da articoli di rivista.** Le cinque voci di diario e i dati
+  direzionali degli ADR nascono tutti da articoli scientifici; fra i documenti passati in
+  catena c'è anche un capitolo di libro, ma **nessuna normativa**. Il problema dichiarato
+  in apertura di questo README parla di articoli, normative e libri: l'estensione a
+  normative e testi è un **obiettivo del progetto**, non un risultato osservato.
 - **“Provider-agnostico” è un impegno di disegno, non ancora un adattatore finito.** Il
   metodo è descritto per essere portabile tra modelli; oggi gira su Claude Code.
   Collegare un altro fornitore richiede ancora lavoro. Due vincoli sono impliciti e vanno

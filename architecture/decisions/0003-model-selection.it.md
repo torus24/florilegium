@@ -54,7 +54,8 @@ diversi e si prevengono con presidi diversi — non perché contino meno.
 2. **Modello medio dove si ri-legge senza emettere verdetto** (gate base) e dove il
    compito è un mestiere ripetibile.
 3. **Non "il più economico ovunque":** anche un compito meccanico richiede un modello che
-   sappia *non* interpretare.
+   sappia *non* interpretare — una regola tratta da **due fallimenti osservati**, non da
+   una misura.
 4. Il modello di ciascuna funzione è **fissato nella sua scheda**, indipendente dal
    modello con cui gira la sessione.
 

@@ -53,7 +53,8 @@ different ways and are prevented by different safeguards — not because they ma
 2. **Mid-tier model where you re-read without emitting a verdict** (base gate) and where
    the task is a repeatable craft.
 3. **Not “the cheapest everywhere”:** even a mechanical task needs a model that knows how
-   *not* to interpret.
+   *not* to interpret — a rule drawn from **two observed failures**, not from a
+   measurement.
 4. Each role’s model is **fixed in its own card**, independent of the model the session
    runs on.
 

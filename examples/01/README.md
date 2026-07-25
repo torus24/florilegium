@@ -47,6 +47,10 @@ sudo apt install poppler-utils     # Debian/Ubuntu
 brew install poppler               # macOS
 ```
 
+This walkthrough was verified with **poppler 24.02.0**. Rendering can differ slightly
+between poppler versions; the loss of the minus signs shown below, however, comes from the
+**PDF**, not from the version.
+
 Download the article from the DOI above and save it in this directory as **`paper.pdf`** —
 that is the filename the commands expect.
 

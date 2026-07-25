@@ -46,9 +46,11 @@ dalla fonte era diverso da quello trascritto nella nota, e su quella differenza 
 la nota aveva fondato l'ennesima riga «refuso di fonte».
 
 Il conto di quella nota, alla fine: portava **quattro** righe «refuso di fonte», e i
-refusi **reali** erano **due**. Sono due conti diversi e vanno letti come tali: le cinque
-accuse ricontrollate una per una stanno su articoli diversi, queste quattro stanno tutte
-sulla stessa nota — e il quarto falso allarme di quel conto è il secondo di questo.
+refusi **reali** erano **due**. Sono due conti diversi e **non si sommano**: le cinque
+accuse ricontrollate una per una stanno su tre articoli diversi — due dei quali ne portavano
+più di una — mentre queste quattro stanno tutte sulla stessa nota, e i due conti si
+sovrappongono. Vanno letti come due sguardi sullo stesso materiale, non come due conteggi
+indipendenti.
 
 Questo è il punto che ha cambiato il metodo, ed è più importante del numero. Se il quarto
 caso è emerso **per caso**, mentre si guardava altro, allora la domanda non è più *quanti

@@ -47,6 +47,10 @@ sudo apt install poppler-utils     # Debian/Ubuntu
 brew install poppler               # macOS
 ```
 
+Questo percorso è stato verificato con **poppler 24.02.0**. La resa può variare
+leggermente fra versioni di poppler; la perdita dei segni meno mostrata più sotto, però,
+viene dal **PDF**, non dalla versione.
+
 Scarica l'articolo dal DOI qui sopra e salvalo in questa cartella come **`paper.pdf`**: è
 il nome che i comandi si aspettano.
 

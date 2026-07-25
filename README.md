@@ -22,7 +22,8 @@ searchable knowledge base looks like a solved problem. It is not.
 
 - **OCR lies, and it lies worst exactly where it matters.** Body text survives
   reasonably well. **Formulas do not** — and these are the corruptions a text layer
-  hides best:
+  hides best (illustrative examples of the failure class; the measured episodes are in
+  the [journal](journal/README.md)):
     - an **exponent** misread: the slope of a fatigue S–N curve read as `Δσ³` instead
       of `Δσ⁵`, and the predicted life is off by orders of magnitude;
     - a **subscript** swapped: a characteristic strength `f_ck` read as the design
@@ -289,6 +290,18 @@ Stated up front, because honesty about limits is part of the method:
   **quarantine**, under human eyes. It never silently picks a winner, because a surfaced
   disagreement is safe and a hidden wrong “correction” is not. This is a deliberate
   choice, not a defect.
+- **Independence is informational, not statistical.** Two independent readings share no
+  state and no expected answer, but they can share **failure modes**: they are given to
+  models of the same family, and in front of an ambiguous glyph the error between two
+  readings can turn out to be **correlated** — it happened, on two documents out of two.
+  It is one of the reasons the gate does not stop at two channels: the third does not read
+  at all, and wherever the source publishes a number the formula must reproduce, either
+  the computation closes or it does not.
+- **The published evidence comes from journal articles.** The five journal entries and the
+  directional figures in the ADRs all come from scientific papers; among the documents put
+  through the chain there is also a book chapter, but **no standard**. The problem stated
+  at the top of this README speaks of papers, standards and textbooks: extending to
+  standards and textbooks is a **project objective**, not an observed result.
 - **“Provider-agnostic” is a design commitment, not yet a finished adapter.** The
   method is described to be portable across models; today it runs on Claude Code.
   Wiring in another provider still takes work. Two constraints are implicit and worth

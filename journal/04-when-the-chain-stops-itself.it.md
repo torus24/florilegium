@@ -42,7 +42,8 @@ C'è un secondo modo di finire il budget, e nella pratica è quello che scatta q
 
 Un articolo particolarmente ricco — molte formule, molte note — **esaurisce la corsa da
 solo**, anche se il conteggio degli articoli è ancora ampiamente aperto. Nei fatti, corse
-impostate su cinque articoli si sono chiuse **più volte al primo**, per densità.
+impostate su cinque articoli si sono chiuse **al primo** tre volte, nelle corse qui
+registrate, per densità.
 
 **Che cos'è la densità, operativamente.** È il **numero di note che l'estrazione produce da
 un singolo documento**, contato a documento finito. Un documento è *denso* quando quel conto

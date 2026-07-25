@@ -16,6 +16,10 @@ Sono scritte a posteriori e tenute oneste, anche dove il metodo prima era sbagli
 è diventato giusto. I dati vengono da un uso della pipeline precedente a questo progetto,
 riportati in forma generica.
 
+Gli episodi provengono da circa **35 corse armate** su una **diciottina di documenti**:
+abbastanza per dire che sono modi di guasto ricorrenti e non incidenti isolati, non
+abbastanza per chiamarli una misura. I totali esatti arrivano coi benchmark di **M4**.
+
 ---
 
 *Vedi anche: [architecture/overview](../architecture/overview.it.md) per come queste regole
