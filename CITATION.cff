@@ -2,13 +2,22 @@ cff-version: 1.2.0
 message: "If you use this work, please cite it as below."
 type: software
 title: "florilegium: a multi-stage agentic pipeline for verifiable PDF-to-Markdown knowledge extraction"
+abstract: "florilegium turns collections of technical PDFs into a verifiable Markdown knowledge base. Formulas are verified from the image of the page rather than from the OCR text layer: a second reading is produced independently, by a role that never sees the first and is never told what to expect, and disagreements are settled by a third channel — the source's own arithmetic — which does not read at all. This repository publishes the methodology, the architecture and the decision records behind it."
 authors:
-  - family-names: Santoro
-    given-names: Raffaele
+  - family-names: "Santoro"
+    given-names: "Raffaele"
     orcid: "https://orcid.org/0009-0008-4621-1213"
-repository-code: "https://github.com/torus24/florilegium"
-license:
-  - Apache-2.0
-  - CC-BY-4.0
-version: 0.1.0
+version: "0.1.0"
 date-released: "2026-07-26"
+license: "Apache-2.0"
+repository-code: "https://github.com/torus24/florilegium"
+url: "https://github.com/torus24/florilegium"
+keywords:
+  - "knowledge extraction"
+  - "document AI"
+  - "OCR"
+  - "formula recognition"
+  - "verification"
+  - "multi-agent systems"
+  - "quality gates"
+  - "technical documentation"
