@@ -5,6 +5,7 @@ title: "florilegium: a multi-stage agentic pipeline for verifiable PDF-to-Markdo
 authors:
   - family-names: Santoro
     given-names: Raffaele
+    orcid: "https://orcid.org/0009-0008-4621-1213"
 repository-code: "https://github.com/torus24/florilegium"
 license:
   - Apache-2.0
