@@ -7,6 +7,8 @@
 **Filosofia:** *Knowledge quality over token efficiency* (la qualità della conoscenza
 prima dell'efficienza sui token).
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21579775.svg)](https://doi.org/10.5281/zenodo.21579775)
+
 🇬🇧 *This page is also available in [English](README.md).*
 
 > **Stato del progetto — M1 (“la Storia”).** Questo repository pubblica per ora la
@@ -395,7 +397,14 @@ questo lavoro viene citato.
 ## Come citare
 
 > Santoro, R. (2026). *florilegium: a multi-stage agentic pipeline for verifiable
-> PDF-to-Markdown knowledge extraction.* https://github.com/torus24/florilegium
+> PDF-to-Markdown knowledge extraction.* Zenodo.
+> [https://doi.org/10.5281/zenodo.21579775](https://doi.org/10.5281/zenodo.21579775)
+
+Quello è il **concept DOI**: risolve sempre all'ultima versione, ed è quello che una
+citazione deve puntare. Ogni rilascio ha anche il suo DOI —
+[10.5281/zenodo.21579776](https://doi.org/10.5281/zenodo.21579776) per la `v0.1.0` — per
+quando serve citare esattamente ciò che si è letto. [`CITATION.cff`](CITATION.cff) li porta
+entrambi, e GitHub lo trasforma nel riquadro *Cite this repository*.
 
 ---
 

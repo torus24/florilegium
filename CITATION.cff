@@ -10,6 +10,14 @@ authors:
 version: "0.1.0"
 date-released: "2026-07-26"
 license: "Apache-2.0"
+doi: "10.5281/zenodo.21579775"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21579775"
+    description: "The concept DOI — resolves to the latest version. Cite this one."
+  - type: doi
+    value: "10.5281/zenodo.21579776"
+    description: "The DOI of release v0.1.0 specifically."
 repository-code: "https://github.com/torus24/florilegium"
 url: "https://github.com/torus24/florilegium"
 keywords:
