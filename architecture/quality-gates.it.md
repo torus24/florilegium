@@ -37,8 +37,8 @@ audit strutturale del corpus, firma dell'arbitro. La verifica multi-canale è ri
 che alimenta un calcolo. Su un corpus tecnico queste note sono la maggior parte del volume:
 dire che ricevono una garanzia **più debole** è parte del metodo, non una sua eccezione.
 
-**Un anchor di benchmark** è una nota designata in anticipo come **riferimento fisso** dei
-benchmark di M4: il suo contenuto deve restare verificato alla lettera, perché le misure
+**Un anchor di benchmark** è una nota designata in anticipo come **riferimento fisso** delle
+misure di M4: il suo contenuto deve restare verificato alla lettera, perché le misure
 successive si confrontano con quello. La designazione viene da fuori del gate — è un atto
 deliberato, non una scelta che una funzione prende per conto suo mentre gira. Gli anchor si verificano a livello
 pieno **a prescindere da qualunque accusa**: per questo sono il secondo innesto.

@@ -9,8 +9,10 @@ riproduzioni, non solo codice.
 ## Dove si trova il progetto
 
 Vedi la [Roadmap](ROADMAP.it.md). Oggi il repository è a **M1 — la Storia**: README,
-architettura e registri delle decisioni. Il motore eseguibile, i prompt generalizzati e i
-benchmark arrivano nelle milestone successive.
+architettura e registri delle decisioni. La catena vera e propria — le schede di funzione,
+il protocollo dei gate e il piccolo nucleo deterministico — e l'evidenza che ha prodotto
+arrivano dopo. La roadmap descrive stati, non impegni: questo repository documenta un
+metodo che il suo autore usa in un altro progetto, e non è sviluppato come prodotto.
 
 ## Come proporre una modifica
 

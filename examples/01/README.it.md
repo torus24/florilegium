@@ -2,7 +2,7 @@
 
 🇬🇧 *This page is also available in [English](README.md).*
 
-Questo è l'esempio di **M1**. Il motore non c'è ancora (è M2), quindi tutto qui è
+Questo è l'esempio di **M1**. La catena non è ancora pubblicata (è M2), quindi tutto qui è
 **riproducibile a mano** con due comandi di `poppler-utils` — niente chiave API, niente
 modello, niente account. Quello che la pipeline automatizza si può fare a mano in cinque
 minuti e vedere la stessa cosa.
@@ -170,10 +170,11 @@ che puoi usare e una nota che devi ricontrollare.
 **Non mostra:**
 
 - un tasso d'errore misurato. Questa è **una formula in un articolo**: una dimostrazione, non
-  un benchmark. I benchmark arrivano con M4, e fino ad allora questo repository non cita
-  numeri che non sia in grado di riprodurre.
-- la pipeline in funzione. Qui non ci sono ancora né il motore né i prompt delle
-  funzioni (entrambi M2): questo esempio è volutamente eseguibile a mano, che è anche il modo onesto
+  un benchmark. Le misure arrivano con M4 — direzionali, perché le loro fonti sono protette
+  da copyright — e ogni numero che questo repository cita è etichettato per quello che è:
+  evidenza direzionale da corse private (come nell'ADR-0003), mai un benchmark riproducibile.
+- la pipeline in funzione. Qui non ci sono ancora né le schede di funzione né il protocollo
+  dei gate (entrambi M2): questo esempio è volutamente eseguibile a mano, che è anche il modo onesto
   di verificare che il metodo non dipenda da un modello particolare.
 
 ---
@@ -185,7 +186,7 @@ dimostrazione minima di **un solo gate**, ricostruita come programma a sé perch
 possa eseguirla. **Non** è la catena che ha prodotto i numeri dei registri delle decisioni:
 quella gira come sessioni di agenti dentro Claude Code, e pubblicarla — le schede delle
 funzioni, le skill, gli hook — è quello che sarà **M2**. Va letto come un dimostratore, non
-come il motore.
+come la catena.
 
 Tutto quello che c'è qui sopra si fa a mano, ed è giusto che resti così: è quello che rende
 l'affermazione verificabile senza doversi fidare di noi. Lo script sono gli stessi quattro

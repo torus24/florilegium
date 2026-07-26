@@ -23,7 +23,7 @@ A repository that **explains** the project.
 - `LICENSE`, `ROADMAP.md`, `CONTRIBUTING.md`.
 - **A script that runs the example** — `scripts/compare_readings.py`: it renders the page
   as an image, re-transcribes the formula from it, compares the two readings, prints the
-  differences. A demonstration of **one** gate, not the engine.
+  differences. A demonstration of **one** gate, not the chain.
 
 **State reached:** a stranger, reading only the README + architecture + one ADR,
 understands the *problem*, the *originality*, and *why this author designed it that way*.

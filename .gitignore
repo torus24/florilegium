@@ -40,7 +40,7 @@ venv/
 # --- Temp files ---
 #     NOTE: no blanket *.lock here, on purpose. It would silently swallow
 #     dependency lockfiles (uv.lock, poetry.lock, package-lock.json,
-#     Cargo.lock), which MUST be tracked for reproducibility. When the engine
+#     Cargo.lock), which MUST be tracked for reproducibility. When the chain
 #     starts writing runtime locks, ignore them by their specific path.
 *.tmp
 

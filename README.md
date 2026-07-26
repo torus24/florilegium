@@ -9,9 +9,9 @@
 🇮🇹 *Questa pagina è disponibile anche in [italiano](README.it.md).*
 
 > **Project status — M1 (“the Story”).** This repository currently publishes the
-> **methodology** and the design record behind the pipeline. The runnable engine,
-> the generalized prompts and the reproducible benchmarks land in later milestones
-> (see [Roadmap](#roadmap)). Nothing here depends on private or copyrighted material.
+> **methodology** and the design record behind the pipeline. The chain itself, and the
+> evidence it has produced, come later (see [Roadmap](#roadmap)) — described there as
+> states, not as promises. Nothing here depends on private or copyrighted material.
 
 ---
 
@@ -206,7 +206,7 @@ PDF → discovery → channel triage → extraction → mechanical pre-gate
 ## Status & implementation
 
 - **Current milestone: M1 — the Story.** Methodology, architecture and decision
-  records. No runnable engine in the repo *yet* (that is M2, on purpose — see below).
+  records. The chain itself is not in the repo *yet* (that is M2, on purpose — see below).
 - **Reference implementation:** Claude Code on Linux — running on a **2015 dual-core
   laptop**. That is deliberate: the value here is the *method*, not expensive hardware.
   Stated openly, not hidden.
@@ -237,7 +237,7 @@ everywhere. The roadmap says so [in as many words](ROADMAP.md).
 Why the code comes *after* the story: the value here is the **method and the
 decisions**, not a folder of scripts. Publishing the reasoning first is deliberate.
 
-**And the method can be adopted in pieces, today, with no engine at all.** Two of these
+**And the method can be adopted in pieces, today, with no automation at all.** Two of these
 rules cost nothing to apply by hand and are worth having on their own: render the page at
 **≥400 dpi and re-read the formula from the image before accusing the source of a typo**,
 and **never tell whoever re-reads the source what answer is expected**. That is not a
@@ -363,7 +363,8 @@ Stated up front, because honesty about limits is part of the method:
 ## License
 
 This repository carries **two licenses**, over distinct scopes: **code** (scripts,
-configuration, the future engine) is under Apache-2.0; **everything else** — README,
+configuration, the deterministic core when it ships) is under Apache-2.0; **everything
+else** — README,
 `architecture/`, ADRs, `journal/`, `examples/`, diagrams — is under CC-BY-4.0. Full texts:
 [`LICENSE`](LICENSE) and [`LICENSES/CC-BY-4.0.txt`](LICENSES/CC-BY-4.0.txt).
 

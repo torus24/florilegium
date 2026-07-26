@@ -9,14 +9,14 @@ This file is kept in English only — see the bilingual policy in
 
 ## [0.1.0] — 2026-07-26 — M1, the Story
 
-First public release. The repository publishes the **method**, not yet the engine.
+First public release. The repository publishes the **method**, not yet the chain.
 
 ### Added
 
 - README (EN + IT): the problem, the hero feature, the architecture, the limitations and
   the roadmap.
 - `architecture/`: overview, roles and quality gates, each with an Italian mirror.
-- Six Architecture Decision Records (ADR-0001 … ADR-0006), EN + IT, all `accepted`.
+- Seven Architecture Decision Records (ADR-0001 … ADR-0007), EN + IT, all `accepted`.
 - `journal/`: five entries recording the failures the decisions were paid for, EN + IT,
   with an index.
 - `examples/01`: a worked example — a formula the text layer silently broke —
@@ -29,6 +29,8 @@ First public release. The repository publishes the **method**, not yet the engin
   API key); an API backend is available as a declared alternative.
 - `LICENSE` (Apache-2.0), `LICENSES/CC-BY-4.0.txt`, `CITATION.cff`, `ROADMAP` and
   `CONTRIBUTING` (both EN + IT).
+- `CODE_OF_CONDUCT` (Contributor Covenant 2.1, EN + IT) and the `.github/` issue and
+  pull-request templates (English only, by declared choice).
 - The `ROADMAP` describes **states, not commitments**: florilegium documents a method its
   author uses in another project, so what ships is what was already written in order to
   work. No v1.0 is planned, and the roadmap says in as many words what it does not

@@ -2,7 +2,7 @@
 
 🇮🇹 *Questa pagina è disponibile anche in [italiano](README.it.md).*
 
-This is the worked example for **M1**. There is no engine yet (that is M2), so everything
+This is the worked example for **M1**. The chain is not published yet (that is M2), so everything
 here is **reproducible by hand** with two commands from `poppler-utils` — no API key, no
 model, no account. What the pipeline automates, you can do manually in five minutes and see
 the same thing.
@@ -166,9 +166,10 @@ you have to re-check.
 **It does not show:**
 
 - a measured error rate. This is **one formula in one paper**: a demonstration, not a
-  benchmark. The benchmarks arrive with M4, and until then this repository quotes no numbers
-  it cannot reproduce.
-- the pipeline running. There is no engine and no role prompts here yet (both M2): this
+  benchmark. The measurements arrive with M4 — directional, since their sources are
+  copyrighted — and every number this repository quotes is labelled for what it is:
+  directional evidence from private runs (as in ADR-0003), never a reproducible benchmark.
+- the pipeline running. Neither the role cards nor the gate protocol are here yet (both M2): this
   example is deliberately doable by hand, which is also the honest way to check that the
   method does not depend on any particular model.
 
@@ -180,7 +181,7 @@ you have to re-check.
 minimal demonstration of **one gate**, rebuilt as a standalone program so that anyone can run
 it. It is **not** the chain that produced the numbers in the decision records: that chain runs
 as agent sessions inside Claude Code, and publishing it — the role definitions, the skills,
-the hooks — is what **M2** is for. Read this as a demonstrator, not as the engine.
+the hooks — is what **M2** is for. Read this as a demonstrator, not as the chain.
 
 Everything above is done by hand, and it should stay that way: it is what makes the claim
 checkable without trusting us. The script is the same four steps with the model doing the

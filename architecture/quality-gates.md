@@ -39,7 +39,7 @@ the bulk of the volume: saying that they receive a **weaker** guarantee is part 
 method, not an exception to it.
 
 **A benchmark anchor** is a note designated in advance as a **fixed reference** for the M4
-benchmarks: its content has to stay verified to the letter, because later measurements are
+measurements: its content has to stay verified to the letter, because later measurements are
 compared against it. The designation comes from outside the gate — it is a deliberate act,
 not something a role decides on its own while running. Anchors are verified at the full level **regardless of any
 accusation**: that is why they are the second entry point.

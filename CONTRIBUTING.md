@@ -9,8 +9,10 @@ not just code.
 ## Where the project is
 
 See the [Roadmap](ROADMAP.md). Today the repository is at **M1 — the Story**: README,
-architecture and decision records. The runnable engine, the generalized prompts and the
-benchmarks arrive in later milestones.
+architecture and decision records. The chain itself — the role cards, the gate protocol and
+the small deterministic core — and the evidence it has produced come later. The roadmap
+describes states, not commitments: this repository documents a method its author uses in
+another project, and is not developed as a product.
 
 ## How to propose a change
 

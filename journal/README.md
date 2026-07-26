@@ -20,7 +20,9 @@ reported in generic form.
 
 The episodes come from roughly **35 armed runs** over some **eighteen documents**: enough
 to say that these are recurring failure modes and not one-off accidents, not enough to
-call any of it a measurement. The exact totals arrive with the **M4** benchmarks.
+call any of it a measurement. The exact totals arrive with the **M4** measurements — which
+will be directional by construction, since the sources they come from are copyrighted and
+stay out of this repository.
 
 ---
 

@@ -7,7 +7,7 @@ Read that sentence literally. This script is not the chain that produced the
 numbers in architecture/decisions/ — that chain runs as agent sessions inside
 Claude Code, and it is what M2 publishes. This is a small, separate program
 that reproduces, end to end, the discrepancy examples/01 walks through by
-hand. It is a demonstrator, not the engine.
+hand. It is a demonstrator, not the chain.
 
 It does four things, in this order:
 

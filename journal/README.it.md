@@ -20,7 +20,9 @@ riportati in forma generica.
 
 Gli episodi provengono da circa **35 corse armate** su una **diciottina di documenti**:
 abbastanza per dire che sono modi di guasto ricorrenti e non incidenti isolati, non
-abbastanza per chiamarli una misura. I totali esatti arrivano coi benchmark di **M4**.
+abbastanza per chiamarli una misura. I totali esatti arrivano con le misure di **M4** — che
+saranno direzionali per costruzione, dato che le fonti da cui vengono sono protette da
+copyright e restano fuori da questo repository.
 
 ---
 

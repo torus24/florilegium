@@ -23,7 +23,7 @@ Un repository che **spiega** il progetto.
 - `LICENSE`, `ROADMAP.md`, `CONTRIBUTING.md`.
 - **Uno script che esegue l'esempio** — `scripts/compare_readings.py`: rende la pagina come
   immagine, ri-trascrive la formula dall'immagine, confronta le due letture, stampa le
-  differenze. È la dimostrazione di **un** gate, non il motore.
+  differenze. È la dimostrazione di **un** gate, non la catena.
 
 **Stato raggiunto:** un estraneo, leggendo solo README + architettura + un ADR, capisce il
 *problema*, l'*originalità* e *perché questo autore l'ha progettato così*. L'esempio è

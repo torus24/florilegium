@@ -10,10 +10,10 @@ prima dell'efficienza sui token).
 🇬🇧 *This page is also available in [English](README.md).*
 
 > **Stato del progetto — M1 (“la Storia”).** Questo repository pubblica per ora la
-> **metodologia** e il registro delle decisioni dietro la pipeline. Il motore
-> eseguibile, i prompt generalizzati e i benchmark riproducibili arrivano nelle
-> milestone successive (vedi [Roadmap](#roadmap)). Nulla di quanto qui presente
-> dipende da materiale privato o protetto da copyright.
+> **metodologia** e il registro delle decisioni dietro la pipeline. La catena vera e
+> propria, e l'evidenza che ha prodotto, arrivano dopo (vedi [Roadmap](#roadmap)) — lì
+> descritte come stati, non come promesse. Nulla di quanto qui presente dipende da
+> materiale privato o protetto da copyright.
 
 ---
 
@@ -215,7 +215,7 @@ PDF → discovery → triage dei canali → estrazione → pre-gate meccanico
 ## Stato & implementazione
 
 - **Milestone attuale: M1 — la Storia.** Metodologia, architettura e registri delle
-  decisioni. Nessun motore eseguibile nel repo *per ora* (è M2, di proposito — vedi
+  decisioni. La catena vera e propria non è ancora nel repo (è M2, di proposito — vedi
   sotto).
 - **Implementazione di riferimento:** Claude Code su Linux — su un **portatile
   dual-core del 2015**. È una scelta: qui il valore è il *metodo*, non l'hardware
@@ -248,7 +248,7 @@ installabile ovunque. La roadmap [lo dice per esteso](ROADMAP.it.md).
 Perché il codice viene *dopo* la storia: qui il valore è il **metodo e le decisioni**,
 non una cartella di script. Pubblicare prima il ragionamento è una scelta deliberata.
 
-**E il metodo si adotta a pezzi, già oggi, senza nessun motore.** Due di queste regole non
+**E il metodo si adotta a pezzi, già oggi, senza nessuna automazione.** Due di queste regole non
 costano nulla da applicare a mano e valgono già da sole: rendere la pagina a **≥400 dpi e
 rileggere la formula dall'immagine prima di accusare la fonte di un refuso**, e **non dire
 mai a chi rilegge la fonte quale risposta ci si aspetta**. Non è un sostituto di M2 — è la
@@ -377,7 +377,8 @@ Dichiarati in cima, perché l'onestà sui limiti è parte del metodo:
 ## Licenza
 
 Il repository ha **due licenze**, per perimetri distinti: il **codice** (script,
-configurazioni, futuro motore) sta sotto Apache-2.0; **tutto il resto** — README,
+configurazioni, il nucleo deterministico quando uscirà) sta sotto Apache-2.0; **tutto il
+resto** — README,
 `architecture/`, ADR, `journal/`, `examples/`, diagrammi — sta sotto CC-BY-4.0. Testi
 integrali: [`LICENSE`](LICENSE) e [`LICENSES/CC-BY-4.0.txt`](LICENSES/CC-BY-4.0.txt).
 
